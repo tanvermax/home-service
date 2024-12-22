@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 
 const Register = () => {
-  const { registerwihtgmail,googlelogin } = useContext(AuhtContext);
+  const { registerwihtgmail,googlelogin,setUser } = useContext(AuhtContext);
 
   const handleregisteruser = (e) => {
     e.preventDefault();
@@ -17,7 +17,9 @@ const Register = () => {
     console.log(user);
     registerwihtgmail(email, password)
       .then((result) => {
-        console.log(result.user);
+        setUser(result.user);
+        console.log(result.user.email);
+        
         
       })
       .catch((error) => {

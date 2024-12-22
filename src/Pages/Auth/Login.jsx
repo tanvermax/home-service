@@ -1,9 +1,30 @@
 import React, { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 
 const Login = () => {
-  const {googlelogin}= useContext();
+  const { googlelogin,loginwihtpass } = useContext(AuhtContext);
+
+  const handlelogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+ 
+    const email = form.email.value;
+    const password = form.password.value;
+    const user = { email, password };
+    console.log(user);
+    loginwihtpass(email,password)
+    .then(result=>{
+      console.log(result.user);
+      
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+  };
+
   return (
     <div>
       <div className="hero bg-base-200 min-h-screen">
@@ -17,13 +38,14 @@ const Login = () => {
             </p>
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <form className="card-body">
+            <form onSubmit={handlelogin} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="email"
                   className="input input-bordered"
                   required
@@ -35,6 +57,7 @@ const Login = () => {
                 </label>
                 <input
                   type="password"
+                  name="password"
                   placeholder="password"
                   className="input input-bordered"
                   required
@@ -53,7 +76,9 @@ const Login = () => {
               <Link to={"/register"}>Dont't have account? Register</Link>
               <br />
               <p>or</p>
-              <button onClick={googlelogin} className="flex items-center gap-2">login with <FcGoogle /></button>
+              <button onClick={googlelogin} className="flex items-center gap-2">
+                login with <FcGoogle />
+              </button>
             </div>
           </div>
         </div>

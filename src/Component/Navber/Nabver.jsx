@@ -1,17 +1,43 @@
-import React from "react";
+import { useContext } from "react";
+import "./navber.css";
 import { NavLink } from "react-router-dom";
+import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 
 const Nabver = () => {
+  const { User,logout } = useContext(AuhtContext);
   const navber = (
     <>
-      <NavLink to={"/"}>Home</NavLink>
+      <NavLink className="nav-link" to={"/"}>
+        <span className="relative z-20  ">Home</span>
+      </NavLink>
 
-      <NavLink to={"/allservices"}>ALl Services</NavLink>
-      <NavLink to={"/singleservices"}>Single Services</NavLink>
-      <NavLink to={"/addService"}>Add-A-Service</NavLink>
-      <NavLink to={"/manageservices"}>Manage-Services</NavLink>
-      <NavLink to={"/bookedservice"}>Booked Service</NavLink>
-      <NavLink to={"/servicetodo"}>Service To Do</NavLink>
+      <li className="relative group ">
+        <NavLink className="nav-link " to={"/allservices"}>
+          <span className=" z-10  ">ALl Services</span>
+        </NavLink>
+        <ul className="absolute left-0 mt-2 hidden top-10 group-hover:block">
+          <li className="gap-5 bg-none">
+            <NavLink className="nav-link" to={"/addService"}>
+              <span className="relative z-10  ">Add-A-Service</span>
+            </NavLink>
+            <NavLink className="nav-link" to={"/manageservices"}>
+              <span className="relative z-10  ">Manage-Services</span>
+            </NavLink>
+            <NavLink className="nav-link" to={"/bookedservice"}>
+              <span className="relative z-10  ">Booked Service</span>
+            </NavLink>
+            <NavLink className="nav-link" to={"/servicetodo"}>
+              <span className="relative z-10  ">Service To Do</span>
+            </NavLink>
+          </li>
+        </ul>
+      </li>
+      <NavLink className="nav-link" to={"/dashbord"}>
+        <span className="relative z-10  ">Dashbord</span>
+      </NavLink>
+      <NavLink className="nav-link" to={"/singleservices"}>
+        <span className="relative z-10  ">Single Services</span>
+      </NavLink>
     </>
   );
   return (
@@ -48,9 +74,18 @@ const Nabver = () => {
           <ul className="menu gap-4 menu-horizontal px-1">{navber}</ul>
         </div>
         <div className="navbar-end">
-          <NavLink className="btn" to={"/login"}>
-            login
-          </NavLink>
+          {User ? (
+            <>
+              <p>{User?.displayName ? User.displayName : User.email}</p> 
+              <button onClick={logout} className="nav-link">
+                <span className="relative z-10  ">logout</span>
+              </button>
+            </>
+          ) : (
+            <NavLink className="nav-link " to={"/login"}>
+              <span className="relative z-10  "> login</span>
+            </NavLink>
+          )}
         </div>
       </div>
     </div>
