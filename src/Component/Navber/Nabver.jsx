@@ -13,9 +13,9 @@ const Nabver = () => {
 
       <li className="relative group ">
         <NavLink className="nav-link " to={"/allservices"}>
-          <span className=" z-10  ">ALl Services</span>
+          <span className="z-10  ">ALl Services</span>
         </NavLink>
-        <ul className="absolute left-0 mt-2 hidden top-10 group-hover:block">
+        <ul className="absolute   mt-2 hidden top-10 group-hover:block">
           <li className="gap-5 bg-none">
             <NavLink className="nav-link" to={"/addService"}>
               <span className="relative z-10  ">Add-A-Service</span>

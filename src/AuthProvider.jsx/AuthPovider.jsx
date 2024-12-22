@@ -8,6 +8,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 const gooogleprovider = new GoogleAuthProvider();
 
@@ -15,42 +16,53 @@ const AuthPovider = ({ children }) => {
   const [User, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-//   console.log(User.email);
+  //   console.log(User.email);
 
   const registerwihtgmail = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const googlelogin = () => {
-    setLoading(true)
+    setLoading(true);
     return signInWithPopup(auth, gooogleprovider);
   };
-  const loginwihtpass =(email,password)=>{
-    setLoading(true)
-return signInWithEmailAndPassword(auth ,email,password);
-  }
+  const loginwihtpass = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  // update user name photo
+  const updateUser = async (updatedData) => {
+    await updateProfile(auth.currentUser, updatedData);
+    setUser({ ...auth.currentUser });
+  };
 
   useEffect(() => {
     const unsubscriber = onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser);
-        console.log("state capture" , currentUser);
-        setLoading(false)
-        
+      setUser(currentUser);
+      console.log("state capture", currentUser);
+      setLoading(false);
     });
-    return ()=>{
-        unsubscriber();
-    }
+    return () => {
+      unsubscriber();
+    };
   }, []);
 
-  const logout=()=>{
-    setLoading(true)
-    return signOut(auth)
-  }
+  const logout = () => {
+    setLoading(true);
+    return signOut(auth);
+  };
 
   const auhtinfo = {
     registerwihtgmail,
-    googlelogin,User,logout,setLoading,
-    setUser,loginwihtpass,loading
+    googlelogin,
+    User,
+    logout,
+    setLoading,
+    setUser,
+    loginwihtpass,
+    loading,
+    updateUser,
   };
 
   return (

@@ -1,26 +1,43 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 
 const Register = () => {
-  const { registerwihtgmail,googlelogin,setUser } = useContext(AuhtContext);
+  const { registerwihtgmail,googlelogin,setUser,updateUser } = useContext(AuhtContext);
 
+  const navigate = useNavigate();
   const handleregisteruser = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    const user = { name, email, password };
+    const photoURL = form.photourl.value;
+    const user = { name, email, password,photoURL };
     console.log(user);
     registerwihtgmail(email, password)
       .then((result) => {
         setUser(result.user);
         console.log(result.user.email);
-        
-        
+        updateUser({displayName : name, photoURL : photoURL})
+        fetch('http://localhost:5000/user',{
+          method :"POST",
+          headers: {
+            'COntent-Type' : 'Application/json'
+          },
+          body: JSON.stringify()
+        })
+        .then(res=>res.json(user))
+        .then(data=>{
+          console.log("inside the body" , data);
+          if (data.insertedId) {
+            alert("Account created")
+            navigate('/')
+          }
+          
+        })
       })
       .catch((error) => {
         console.log(error.message);
@@ -48,8 +65,21 @@ const Register = () => {
                 </label>
                 <input
                   type="text"
+                  name="name"
                   className="input input-bordered"
                   placeholder="Your name"
+                  id=""
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Image url</span>
+                </label>
+                <input
+                  type="text"
+                  name="photourl"
+                  className="input input-bordered"
+                  placeholder="Photourl"
                   id=""
                 />
               </div>
