@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 
 const Register = () => {
-  const { registerwihtgmail } = useContext(AuhtContext);
-  
+  const { registerwihtgmail,googlelogin } = useContext(AuhtContext);
+
   const handleregisteruser = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -23,6 +24,7 @@ const Register = () => {
         console.log(error.message);
       });
   };
+  
 
   return (
     <div>
@@ -82,8 +84,12 @@ const Register = () => {
                 <button className="btn btn-primary">Register</button>
               </div>
             </form>
-            <div>
-              <Link to={"/login"}>Already have an account ? login</Link>
+            
+            <div className="w-11/12 mx-auto p-5">
+            <Link to={"/login"}>Already have an account ? login</Link>
+              <br />
+              <p>or</p>
+              <button onClick={googlelogin} className="flex items-center gap-2">login with <FcGoogle /></button>
             </div>
           </div>
         </div>

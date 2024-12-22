@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  const {googlelogin}= useContext();
   return (
     <div>
       <div className="hero bg-base-200 min-h-screen">
@@ -47,8 +49,11 @@ const Login = () => {
                 <button className="btn btn-primary">Login</button>
               </div>
             </form>
-            <div>
+            <div className="w-11/12 mx-auto p-5">
               <Link to={"/register"}>Dont't have account? Register</Link>
+              <br />
+              <p>or</p>
+              <button onClick={googlelogin} className="flex items-center gap-2">login with <FcGoogle /></button>
             </div>
           </div>
         </div>
