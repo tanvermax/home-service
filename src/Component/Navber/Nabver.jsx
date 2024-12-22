@@ -4,18 +4,49 @@ import { NavLink } from "react-router-dom";
 import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 
 const Nabver = () => {
-  const { User,logout } = useContext(AuhtContext);
+  const { User, logout } = useContext(AuhtContext);
   const navber = (
     <>
       <NavLink className="nav-link" to={"/"}>
         <span className="relative z-20  ">Home</span>
       </NavLink>
+      <NavLink className="nav-link " to={"/allservices"}>
+        <span className="relative z-10  ">ALL Service</span>
+      </NavLink>
 
-      <li className="relative group ">
-        <NavLink className="nav-link " to={"/allservices"}>
-          <span className="z-10  ">ALl Services</span>
-        </NavLink>
-        <ul className="absolute   mt-2 hidden top-10 group-hover:block">
+      <div className="dropdown dropdown-hover ">
+        <div tabIndex={0} role="button" className=" m-1">
+          <div className="nav-link bottom-1">
+            <NavLink  to={"/dashbord"}>
+              <span className="relative z-10  ">Dashbord</span>
+            </NavLink>
+          </div>
+        </div>
+        <ul
+          tabIndex={0}
+          className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+        >
+          <NavLink className="nav-link" to={"/addService"}>
+            <span className="relative z-10  ">Add-A-Service</span>
+          </NavLink>
+          <NavLink className="nav-link" to={"/manageservices"}>
+            <span className="relative z-10  ">Manage-Services</span>
+          </NavLink>
+          <NavLink className="nav-link" to={"/bookedservice"}>
+            <span className="relative z-10  ">Booked Service</span>
+          </NavLink>
+          <NavLink className="nav-link" to={"/servicetodo"}>
+            <span className="relative z-10  ">Service To Do</span>
+          </NavLink>
+        </ul>
+      </div>
+      {/* <li className="relative group hover:bg-white">
+        <div className="">
+          <NavLink className="nav-link  bottom-2 " to={"/dashbord"}>
+            <span className="relative z-10  ">Dashbord</span>
+          </NavLink>
+        </div>
+        <ul className="absolute  mt-2 hidden top-10 group-hover:block">
           <li className="gap-5 bg-none">
             <NavLink className="nav-link" to={"/addService"}>
               <span className="relative z-10  ">Add-A-Service</span>
@@ -31,10 +62,8 @@ const Nabver = () => {
             </NavLink>
           </li>
         </ul>
-      </li>
-      <NavLink className="nav-link" to={"/dashbord"}>
-        <span className="relative z-10  ">Dashbord</span>
-      </NavLink>
+      </li> */}
+
       <NavLink className="nav-link" to={"/singleservices"}>
         <span className="relative z-10  ">Single Services</span>
       </NavLink>
@@ -76,7 +105,7 @@ const Nabver = () => {
         <div className="navbar-end">
           {User ? (
             <>
-              <p>{User?.displayName ? User.displayName : User.email}</p> 
+              <p>{User?.displayName ? User.displayName : User.email}</p>
               <button onClick={logout} className="nav-link">
                 <span className="relative z-10  ">logout</span>
               </button>
