@@ -7,6 +7,22 @@ const SignleServices = () => {
   const { User } = useContext(AuhtContext);
 
   const loadData = useLoaderData();
+  const handleservice = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const orderid = form.orderid.value;
+    const servicename = form.servicename.value;
+    const instruction = form.instruction.value;
+    const serviceprovider = form.serviceprovider.value;
+    const cost = form.cost.value;
+    const ordergivenusername = User.displayName;
+    const ordergivenuseremail = User.email;
+    const serviceDate = form.serviceDate.value;
+    const servicedetails = {ordergivenuseremail,serviceDate,cost,ordergivenusername, orderid,serviceDate,servicename,instruction,serviceprovider};
+
+    console.log(servicedetails);
+    document.getElementById("my_modal_5").close();
+  };
 
   return (
     <div className="w-8/12 mx-auto py-10">
@@ -20,7 +36,7 @@ const SignleServices = () => {
               <h2 className="loadData-title text-3xl font-semibold">
                 {loadData.serviceName}
               </h2>
-              <p className="h-14 text-gray-600 overflow-hidden py-3 text-xl">
+              <p className="h-24 text-gray-600 overflow-hidden py-3 text-xl">
                 {loadData.description} in serviceArea :{" "}
                 <span className="badge badge-secondary font-semibold">
                   {loadData.serviceArea}
@@ -57,7 +73,7 @@ const SignleServices = () => {
           <h3 className="font-bold text-lg">Hello!</h3>
 
           <div className="">
-            <form method="dialog">
+            <form onSubmit={handleservice}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">ServiceId</span>
@@ -65,9 +81,9 @@ const SignleServices = () => {
                 <input
                   type="text"
                   className="input amarform"
+                  name="orderid"
                   defaultValue={loadData._id}
                   readOnly
-                 
                 />
               </div>
               <div className="form-control">
@@ -76,6 +92,7 @@ const SignleServices = () => {
                 </label>
                 <input
                   type="text"
+                  name="servicename"
                   className="input amarform  "
                   defaultValue={loadData.serviceName}
                   readOnly
@@ -88,6 +105,7 @@ const SignleServices = () => {
                 </label>
                 <input
                   type="text"
+                  name="serviceprovider"
                   className="input amarform"
                   defaultValue={loadData.providername}
                   readOnly
@@ -121,18 +139,19 @@ const SignleServices = () => {
                 <label className="label">
                   <span className="label-text">Service Taking Date</span>
                 </label>
-                <input
-                  type="date"
-                  className="input amarform"
-                />
+                <input type="date" required
+                name="serviceDate" className="input amarform" />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Special instruction</span>
                 </label>
-                <textarea className="border-[1px]"
-                 name="" defaultValue=" address , area, customized service plan" id=""></textarea>
-               
+                <textarea
+                  className="border-[1px]"
+                  name="instruction"
+                  defaultValue=" address , area, customized service plan"
+                  id=""
+                ></textarea>
               </div>
 
               <div className="form-control">
@@ -141,6 +160,7 @@ const SignleServices = () => {
                 </label>
                 <input
                   type="text"
+                  name="cost"
                   className="input amarform"
                   defaultValue={loadData.price}
                   readOnly
