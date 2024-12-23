@@ -9,6 +9,7 @@ import ServiceLayout from "../src/Pages/Service/ServiceLayout";
 import Addservices from "../src/Pages/Service/Addservices";
 import ManageService from "../src/Pages/Service/ManageService";
 import Bookedservice from "../src/Pages/Service/Bookedservice";
+import PrivetRouts from "../src/Privetrouts/PrivetRouts";
 
 const Routs = createBrowserRouter([
   {
@@ -19,35 +20,48 @@ const Routs = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        errorElement: <h1>route not found</h1>,
       },
       {
         path: "login",
         element: <Login></Login>,
+        errorElement: <h1>route not found</h1>,
       },
       {
         path: "register",
         element: <Register></Register>,
+        errorElement: <h1>route not found</h1>,
       },
       {
         path: "allservices",
         element: <AllService></AllService>,
+        errorElement: <h1>route not found</h1>,
       },
       {
         path: "servicetodo",
         element: <ServiceLayout></ServiceLayout>,
+        errorElement: <h1>route not found</h1>,
       },
       {
         path: "addService",
-        element: <Addservices></Addservices>,
+        element: (
+          <PrivetRouts>
+            <Addservices></Addservices>
+          </PrivetRouts>
+        ),
+
+        errorElement: <h1>route not found</h1>,
       },
       {
         path: "manageservices",
+        errorElement: <h1>route not found</h1>,
         element: <ManageService></ManageService>,
       },
       {
-        path: 'bookedservice',
-        element: <Bookedservice></Bookedservice>
-      }
+        path: "bookedservice",
+        element: <Bookedservice></Bookedservice>,
+        errorElement: <h1>route not found</h1>,
+      },
     ],
   },
 ]);

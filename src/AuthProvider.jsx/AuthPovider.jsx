@@ -16,7 +16,7 @@ const AuthPovider = ({ children }) => {
   const [User, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  //   console.log(User.email);
+    console.log(User);
 
   const registerwihtgmail = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);

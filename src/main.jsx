@@ -9,7 +9,7 @@ import AuthPovider from "./AuthProvider.jsx/AuthPovider.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthPovider>
-    <RouterProvider router={Routs}></RouterProvider>
+      <RouterProvider router={Routs}></RouterProvider>
     </AuthPovider>
   </StrictMode>
 );

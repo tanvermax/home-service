@@ -1,0 +1,23 @@
+.nav_link {
+  @apply text-center py-3 text-base text-black
+   relative h-full w-64
+    overflow-hidden
+     border
+     border-black shadow-2xl
+      before:absolute
+       before:left-0
+       before:bottom-0
+     
+        before:h-full
+         before:w-full
+     before:origin-top-right
+      before:-translate-x-full
+       before:translate-y-12
+      before:-rotate-90
+       before:bg-gray-900
+        before:transition-all
+         before:duration-300
+          hover:text-yellow-600
+           hover:shadow-black
+            hover:before:-rotate-180;
+}

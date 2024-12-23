@@ -14,55 +14,39 @@ const Nabver = () => {
         <span className="relative z-10  ">ALL Service</span>
       </NavLink>
 
-      <div className="dropdown dropdown-hover ">
-        <div tabIndex={0} role="button" className=" m-1">
-          <div className="nav-link bottom-1">
-            <NavLink  to={"/dashbord"}>
-              <span className="relative z-10  ">Dashbord</span>
-            </NavLink>
+      {User ? (
+        <>
+          {" "}
+          <div className="dropdown dropdown-hover ">
+            <div tabIndex={0} role="button" className=" m-1">
+              <div className="nav-link bottom-1">
+                <NavLink to={"/dashbord"}>
+                  <span className="relative z-10  ">Dashbord</span>
+                </NavLink>
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu gap-3 bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+            >
+              <NavLink className="nav-link" to={"/addService"}>
+                <span className="relative z-10  ">Add-A-Service</span>
+              </NavLink>
+              <NavLink className="nav-link" to={"/manageservices"}>
+                <span className="relative z-10  ">Manage-Services</span>
+              </NavLink>
+              <NavLink className="nav-link" to={"/bookedservice"}>
+                <span className="relative z-10  ">Booked Service</span>
+              </NavLink>
+              <NavLink className="nav-link" to={"/servicetodo"}>
+                <span className="relative z-10  ">Service To Do</span>
+              </NavLink>
+            </ul>
           </div>
-        </div>
-        <ul
-          tabIndex={0}
-          className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
-        >
-          <NavLink className="nav-link" to={"/addService"}>
-            <span className="relative z-10  ">Add-A-Service</span>
-          </NavLink>
-          <NavLink className="nav-link" to={"/manageservices"}>
-            <span className="relative z-10  ">Manage-Services</span>
-          </NavLink>
-          <NavLink className="nav-link" to={"/bookedservice"}>
-            <span className="relative z-10  ">Booked Service</span>
-          </NavLink>
-          <NavLink className="nav-link" to={"/servicetodo"}>
-            <span className="relative z-10  ">Service To Do</span>
-          </NavLink>
-        </ul>
-      </div>
-      {/* <li className="relative group hover:bg-white">
-        <div className="">
-          <NavLink className="nav-link  bottom-2 " to={"/dashbord"}>
-            <span className="relative z-10  ">Dashbord</span>
-          </NavLink>
-        </div>
-        <ul className="absolute  mt-2 hidden top-10 group-hover:block">
-          <li className="gap-5 bg-none">
-            <NavLink className="nav-link" to={"/addService"}>
-              <span className="relative z-10  ">Add-A-Service</span>
-            </NavLink>
-            <NavLink className="nav-link" to={"/manageservices"}>
-              <span className="relative z-10  ">Manage-Services</span>
-            </NavLink>
-            <NavLink className="nav-link" to={"/bookedservice"}>
-              <span className="relative z-10  ">Booked Service</span>
-            </NavLink>
-            <NavLink className="nav-link" to={"/servicetodo"}>
-              <span className="relative z-10  ">Service To Do</span>
-            </NavLink>
-          </li>
-        </ul>
-      </li> */}
+        </>
+      ) : (
+        ""
+      )}
 
       <NavLink className="nav-link" to={"/singleservices"}>
         <span className="relative z-10  ">Single Services</span>

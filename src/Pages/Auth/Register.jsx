@@ -3,9 +3,11 @@ import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
+import { use } from "react";
 
 const Register = () => {
-  const { registerwihtgmail,googlelogin,setUser,updateUser } = useContext(AuhtContext);
+  const { registerwihtgmail, googlelogin, setUser, updateUser } =
+    useContext(AuhtContext);
 
   const navigate = useNavigate();
   const handleregisteruser = (e) => {
@@ -15,35 +17,33 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const photoURL = form.photourl.value;
-    const user = { name, email, password,photoURL };
+    const user = { name, email, password, photoURL };
     console.log(user);
     registerwihtgmail(email, password)
       .then((result) => {
         setUser(result.user);
         console.log(result.user.email);
-        updateUser({displayName : name, photoURL : photoURL})
-        fetch('http://localhost:5000/user',{
-          method :"POST",
+        updateUser({ displayName: name, photoURL: photoURL });
+        fetch("http://localhost:5000/user", {
+          method: "POST",
           headers: {
-            'COntent-Type' : 'Application/json'
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify()
+          body: JSON.stringify(user),
         })
-        .then(res=>res.json(user))
-        .then(data=>{
-          console.log("inside the body" , data);
-          if (data.insertedId) {
-            alert("Account created")
-            navigate('/')
-          }
-          
-        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("inside the body", data);
+            if (data.insertedId) {
+              alert("Account created");
+              navigate("/");
+            }
+          });
       })
       .catch((error) => {
         console.log(error.message);
       });
   };
-  
 
   return (
     <div>
@@ -116,12 +116,14 @@ const Register = () => {
                 <button className="btn btn-primary">Register</button>
               </div>
             </form>
-            
+
             <div className="w-11/12 mx-auto p-5">
-            <Link to={"/login"}>Already have an account ? login</Link>
+              <Link to={"/login"}>Already have an account ? login</Link>
               <br />
               <p>or</p>
-              <button onClick={googlelogin} className="flex items-center gap-2">login with <FcGoogle /></button>
+              <button onClick={googlelogin} className="flex items-center gap-2">
+                login with <FcGoogle />
+              </button>
             </div>
           </div>
         </div>
