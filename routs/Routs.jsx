@@ -21,6 +21,7 @@ const Routs = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         errorElement: <h1>route not found</h1>,
+       
       },
       {
         path: "login",
