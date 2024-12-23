@@ -7,6 +7,9 @@ const SignleServices = () => {
   const { User } = useContext(AuhtContext);
 
   const loadData = useLoaderData();
+  console.log(loadData);
+  
+
   const handleservice = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -14,14 +17,31 @@ const SignleServices = () => {
     const servicename = form.servicename.value;
     const instruction = form.instruction.value;
     const serviceprovider = form.serviceprovider.value;
+    const serviceprovideremail = form.serviceprovideremail.value;
+    
     const cost = form.cost.value;
+    const serviceStatus = form.serviceStatus.value;
     const ordergivenusername = User.displayName;
     const ordergivenuseremail = User.email;
     const serviceDate = form.serviceDate.value;
-    const servicedetails = {ordergivenuseremail,serviceDate,cost,ordergivenusername, orderid,serviceDate,servicename,instruction,serviceprovider};
+    const servicedetails = {ordergivenuseremail,serviceprovideremail,serviceStatus,serviceDate,cost,ordergivenusername, orderid,serviceDate,servicename,instruction,serviceprovider};
 
     console.log(servicedetails);
     document.getElementById("my_modal_5").close();
+    fetch('http://localhost:5000/order',{
+        method: "POST",
+        headers:{
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(servicedetails),
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        console.log("inside data",data);
+        if (data.insertedId) {
+            alert("data created")
+        }
+    })
   };
 
   return (
@@ -98,6 +118,11 @@ const SignleServices = () => {
                   readOnly
                 />
               </div>
+              <input
+              type="hidden"
+              name="serviceStatus"
+              value="Pending" // Default value
+            />
 
               <div className="form-control">
                 <label className="label">
@@ -108,6 +133,19 @@ const SignleServices = () => {
                   name="serviceprovider"
                   className="input amarform"
                   defaultValue={loadData.providername}
+                  readOnly
+                />
+              </div>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Provider email</span>
+                </label>
+                <input
+                  type="text"
+                  name="serviceprovideremail"
+                  className="input amarform"
+                  defaultValue={loadData.provideremail}
                   readOnly
                 />
               </div>
@@ -139,7 +177,7 @@ const SignleServices = () => {
                 <label className="label">
                   <span className="label-text">Service Taking Date</span>
                 </label>
-                <input type="date" required
+                <input type="date" 
                 name="serviceDate" className="input amarform" />
               </div>
               <div className="form-control">

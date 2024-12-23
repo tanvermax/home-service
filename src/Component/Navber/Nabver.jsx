@@ -48,9 +48,9 @@ const Nabver = () => {
         ""
       )}
 
-      <NavLink className="nav-link" to={"/singleservices"}>
+      {/* <NavLink className="nav-link" to={"/singleservices"}>
         <span className="relative z-10  ">Single Services</span>
-      </NavLink>
+      </NavLink> */}
     </>
   );
   return (
@@ -86,7 +86,7 @@ const Nabver = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu gap-4 menu-horizontal px-1">{navber}</ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end gap-3">
           {User ? (
             <>
               <p>{User?.displayName ? User.displayName : User.email}</p>
