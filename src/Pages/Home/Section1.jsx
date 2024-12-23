@@ -7,12 +7,12 @@ import { MdOutlineSupportAgent } from "react-icons/md";
 
 const Section1 = () => {
   return (
-    <div className="py-10">
+    <div className="py-10 ">
       <p className="text-xl">___Why Choose US</p>
       <h1 className="text-3xl font-semibold">
         Because we care about your safety..
       </h1>
-      <div className="grid grid-cols-2 py-2">
+      <div className="grid grid-cols-2 py-2 w-9/12 mx-auto">
         <div className="grid grid-cols-2 gap-10">
           <div>
             <span className="text-7xl text-teal-500  ml-2">
@@ -43,8 +43,8 @@ const Section1 = () => {
           </div>
         </div>
         <div>
-          <img className="w-full h-[400px] p-10"
-            src="https://images.pexels.com/photos/9462740/pexels-photo-9462740.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          <img className=" mx-auto h-[400px] p-10"
+            src="https://cdn.pixabay.com/photo/2024/02/09/08/56/construction-8562655_960_720.png"
             alt=""
           />
         </div>

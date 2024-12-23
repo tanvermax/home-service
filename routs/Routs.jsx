@@ -10,6 +10,7 @@ import Addservices from "../src/Pages/Service/Addservices";
 import ManageService from "../src/Pages/Service/ManageService";
 import Bookedservice from "../src/Pages/Service/Bookedservice";
 import PrivetRouts from "../src/Privetrouts/PrivetRouts";
+import SignleServices from "../src/Pages/Service/SignleServices";
 
 const Routs = createBrowserRouter([
   {
@@ -21,7 +22,6 @@ const Routs = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         errorElement: <h1>route not found</h1>,
-       
       },
       {
         path: "login",
@@ -37,6 +37,7 @@ const Routs = createBrowserRouter([
         path: "allservices",
         element: <AllService></AllService>,
         errorElement: <h1>route not found</h1>,
+        loader: () => fetch("http://localhost:5000/addservice"),
       },
       {
         path: "servicetodo",
@@ -62,6 +63,16 @@ const Routs = createBrowserRouter([
         path: "bookedservice",
         element: <Bookedservice></Bookedservice>,
         errorElement: <h1>route not found</h1>,
+      },
+      {
+        path: "addservice/:id",
+        element: (
+          <PrivetRouts>
+            <SignleServices></SignleServices>
+          </PrivetRouts>
+        ),
+        errorElement: <h1>route not found</h1>,
+        loader : ({params})=> fetch(`http://localhost:5000/addservice/${params.id}`)
       },
     ],
   },

@@ -4,6 +4,7 @@ import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 import Banner from "./Banner";
 import PopularService from "./PopularService";
 import Section1 from "./Section1";
+import Section2 from "./Section2";
 
 const Home = () => {
   const {User} = useContext(AuhtContext);
@@ -15,6 +16,7 @@ const Home = () => {
      <Banner></Banner>
      <PopularService></PopularService>
      <Section1></Section1>
+     <Section2></Section2>
       {/* {User.displayName ? User.displayName : " "} */}
      
     </div>
