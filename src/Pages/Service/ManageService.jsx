@@ -15,6 +15,22 @@ const ManageService = () => {
       .then((data) => setData(data));
   }, []);
 
+
+
+
+const handledelet = (_id) => {
+  fetch(`http://localhost:5000/addservice/${_id}`, {
+    method: "DELETE",
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      if (data.deletedCount) {
+        alert('data deleted')
+      }
+    });
+};
+
 //   const handleupdate = (e) => {
 //     e.preventDefault();
 //     const form = e.target;
@@ -104,7 +120,7 @@ const ManageService = () => {
               >
                 <span className="relative z-10">Edit</span>
               </Link>
-              <button className="nav_link font-semibold ">
+              <button onClick={() => handledelet(loadData._id)} className="nav_link font-semibold ">
                 <span className="relative z-10">Delet</span>
               </button>
             </div>
