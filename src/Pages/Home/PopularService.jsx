@@ -37,7 +37,7 @@ const PopularService = () => {
                 </div>
               </div>
               <div className="card-actions justify-between items-center">
-                <div className="badge badge-outline">{card.providername}</div>
+                <div className=" text-xl">Service provider : {card.providername}</div>
                 <div className=" border-warning rounded-full border-2">
                   <img
                     className="h-14 w-14 rounded-full"
