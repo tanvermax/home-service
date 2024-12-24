@@ -40,27 +40,27 @@ The platform focuses on providing a user-friendly experience with features like 
 
 - Utilizes animations for an attractive user experience.
 
-All Services Page:
+### All Services Page:
 
-Public route showing all available services in a one-column layout.
+- Public route showing all available services in a one-column layout.
 
-Each service card displays:
+-Each service card displays:
 
-Service Image
+-- Service Image
 
-Service Name
+-- Service Name
 
-Short Description (max 100 characters)
+-- Short Description (max 100 characters)
 
-View Detail Button
+-- View Detail Button
 
-Service Provider Image, Name
+-- Service Provider Image, Name
 
-Service Area
+-- Service Area
 
-Service Price
+-- Service Price
 
-Single Service Details (Private):
+### Single Service Details (Private):
 
 Shows detailed information about a specific service.
 
