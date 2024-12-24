@@ -14,7 +14,7 @@ const PopularService = () => {
 
   return (
     <div className="py-10">
-      <h1>all popula services :{data.length}</h1>
+     
       <div className="grid grid-cols-3 gap-10">
         {data.map((card) => (
           <div key={card._id} className="card   shadow-xl">

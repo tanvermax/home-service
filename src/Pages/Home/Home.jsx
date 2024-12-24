@@ -14,18 +14,20 @@ const Home = () => {
   // console.log(User.email);
   
   return (
+    <>
+    <Banner></Banner>
     <div className="w-11/12 mx-auto">
       <Helmet>
         <title>Home - Service Sharing</title>
       </Helmet>
-     <Banner></Banner>
+    
      <PopularService></PopularService>
      <Section1></Section1>
      <Section3></Section3>
      <Section2></Section2>
       {/* {User.displayName ? User.displayName : " "} */}
      
-    </div>
+    </div></>
   );
 };
 
