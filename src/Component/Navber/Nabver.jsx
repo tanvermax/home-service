@@ -20,7 +20,7 @@ const Nabver = () => {
           <div className="dropdown dropdown-hover ">
             <div tabIndex={0} role="button" className=" m-1">
               <div className="nav-link bottom-1">
-                <NavLink to={"/dashbord"}>
+                <NavLink >
                   <span className="relative z-10  ">Dashbord</span>
                 </NavLink>
               </div>

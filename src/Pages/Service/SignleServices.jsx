@@ -25,7 +25,7 @@ const SignleServices = () => {
     const ordergivenuseremail = User.email;
     const serviceDate = form.serviceDate.value;
     const servicedetails = {ordergivenuseremail,serviceprovideremail,serviceStatus,serviceDate,cost,ordergivenusername, orderid,serviceDate,servicename,instruction,serviceprovider};
-
+    
     console.log(servicedetails);
     document.getElementById("my_modal_5").close();
     fetch('http://localhost:5000/order',{

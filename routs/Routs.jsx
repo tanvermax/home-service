@@ -42,7 +42,7 @@ const Routs = createBrowserRouter([
       },
       {
         path: "servicetodo",
-        element: <ServiceLayout></ServiceLayout>,
+        element: <PrivetRouts><ServiceLayout></ServiceLayout></PrivetRouts>,
         errorElement: <h1>route not found</h1>,
       },
       {
@@ -62,8 +62,9 @@ const Routs = createBrowserRouter([
       },
       {
         path: "bookedservice",
-        element: <Bookedservice></Bookedservice>,
+        element: <PrivetRouts><Bookedservice></Bookedservice></PrivetRouts>,
         errorElement: <h1>route not found</h1>,
+        
       },
       {
         path: "addservice/:id",

@@ -35,45 +35,56 @@ const Bookedservice = () => {
               </tr>
             </thead>
             <tbody>
-              {/* row 1 */}
-              {data.map((card) => (
-                <tr>
-                  <th>
-                    <label>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
-                  </th>
-                  <td>
-                    <div className="flex items-center gap-3">
-                      <div className="avatar">
-                        <div className="mask mask-squircle h-12 w-12">
-                          <img
-                            src={User.photoURL}
-                            alt="Avatar Tailwind CSS Component"
-                          />
+             
+              {
+                data.length === 0 ? (<div key={data._id} className="text-center text-gray-600">
+                    <h2 className="text-xl font-semibold">No bookings found!</h2>
+                    <p className="text-base">You haven't booked any services yet.</p>
+                    <p>
+                      <a href="/services" className="text-blue-500 underline">
+                        Browse services
+                      </a>{" "}
+                      to make your first booking.
+                    </p>
+                  </div>) : <>{data.map((card) => (
+                    <tr>
+                      <th>
+                        <label>
+                          <input type="checkbox" className="checkbox" />
+                        </label>
+                      </th>
+                      <td>
+                        <div className="flex items-center gap-3">
+                          <div className="avatar">
+                            <div className="mask mask-squircle h-12 w-12">
+                              <img
+                                src={User.photoURL}
+                                alt="Avatar Tailwind CSS Component"
+                              />
+                            </div>
+                          </div>
+                          <div>
+                            <div className="font-bold">
+                              {card.ordergivenusername}
+                            </div>
+                            <div className="text-sm opacity-50">{User.email}</div>
+                          </div>
                         </div>
-                      </div>
-                      <div>
-                        <div className="font-bold">
-                          {card.ordergivenusername}
-                        </div>
-                        <div className="text-sm opacity-50">{User.email}</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    {card.instruction}
-                    <br />
-                    <span className="badge badge-ghost badge-sm">
-                      {card.servicename}
-                    </span>
-                  </td>
-                  <td className="text-green-400">{card.serviceStatus}</td>
-                  <th>
-                    <button className="btn btn-ghost btn-xs">details</button>
-                  </th>
-                </tr>
-              ))}
+                      </td>
+                      <td>
+                        {card.instruction}
+                        <br />
+                        <span className="badge badge-ghost badge-sm">
+                          {card.servicename}
+                        </span>
+                      </td>
+                      <td className="text-green-400">{card.serviceStatus}</td>
+                      <th>
+                        <button className="btn btn-ghost btn-xs">details</button>
+                      </th>
+                    </tr>
+                  ))}</>
+              }
             </tbody>
             {/* foot */}
             <tfoot>
