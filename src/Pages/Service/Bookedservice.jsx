@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
+import { Helmet } from "react-helmet-async";
 
 const Bookedservice = () => {
   const { User } = useContext(AuhtContext);
@@ -14,6 +15,9 @@ const Bookedservice = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Booked  Service</title>
+      </Helmet>
       <h1 className="text-2xl w-9/12 mx-auto py-4">
         Here all your {data.length} booked servie
       </h1>

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 import "./addservic.css";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const Addservices = () => {
@@ -55,6 +56,9 @@ const Addservices = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <Helmet>
+        <title>ADD Service Sharing</title>
+      </Helmet>
       <div className="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
           Add Service

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
+import { Helmet } from "react-helmet-async";
 
 const ServiceLayout = () => {
   const { User } = useContext(AuhtContext);
@@ -45,6 +46,9 @@ const ServiceLayout = () => {
 
   return (
     <div className="w-9/12 mx-auto">
+      <Helmet>
+        <title>To Do service</title>
+      </Helmet>
       <h1>Services to do: {data.length}</h1>
       <div className="grid grid-cols-3 gap-5 p-4">
         {data.map((card) => (

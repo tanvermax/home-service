@@ -6,6 +6,7 @@ import PopularService from "./PopularService";
 import Section1 from "./Section1";
 import Section2 from "./Section2";
 import Section3 from "./Section3";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const {User} = useContext(AuhtContext);
@@ -14,6 +15,9 @@ const Home = () => {
   
   return (
     <div className="w-11/12 mx-auto">
+      <Helmet>
+        <title>Home - Service Sharing</title>
+      </Helmet>
      <Banner></Banner>
      <PopularService></PopularService>
      <Section1></Section1>

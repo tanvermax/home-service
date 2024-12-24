@@ -185,3 +185,6 @@ The platform focuses on providing a user-friendly experience with features like 
 - Animations: Framer Motion / AOS
 
 - Authentication: Firebase + JWT
+
+
+[live site](https://home-service-d15f3.web.app/)

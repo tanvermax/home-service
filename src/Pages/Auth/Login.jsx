@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { googlelogin,loginwihtpass } = useContext(AuhtContext);
@@ -29,6 +30,9 @@ const Login = () => {
 
   return (
     <div>
+       <Helmet>
+        <title>Log in</title>
+      </Helmet>
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">

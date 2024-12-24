@@ -1,10 +1,14 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
 
 const AllService = () => {
   const loadeDAta = useLoaderData();
   return (
     <div className="w-10/12 mx-auto">
+      <Helmet>
+      <title>ALL service - Service Sharing</title>
+      </Helmet>
       <h1 className="py-4 text-2xl ml-5 font-medium">ALL SERVICES Here What You Need</h1>
       <div className="grid grid-cols-3 gap-14 py-9">
         {loadeDAta.map((card) => (

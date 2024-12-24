@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 import { use } from "react";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { registerwihtgmail, googlelogin, setUser, updateUser } =
@@ -47,6 +48,9 @@ const Register = () => {
 
   return (
     <div>
+       <Helmet>
+        <title>Register</title>
+      </Helmet>
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">

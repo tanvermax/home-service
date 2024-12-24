@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const ManageService = () => {
   const { User } = useContext(AuhtContext);
@@ -37,6 +38,9 @@ const ManageService = () => {
 
   return (
     <div className="w-11/12 mx-auto py-10">
+       <Helmet>
+        <title>Manage  Service</title>
+      </Helmet>
       <h1>mange service{data.length}</h1>
       <div className="grid grid-cols-3 gap-10">
         {data.map((loadData) => (
