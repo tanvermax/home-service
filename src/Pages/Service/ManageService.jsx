@@ -15,57 +15,25 @@ const ManageService = () => {
       .then((data) => setData(data));
   }, []);
 
-
-
-
-const handledelet = (_id) => {
-  fetch(`http://localhost:5000/addservice/${_id}`, {
-    method: "DELETE",
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      if (data.deletedCount) {
-        alert('data deleted')
-      }
-    });
-};
-
-//   const handleupdate = (e) => {
-//     e.preventDefault();
-//     const form = e.target;
-//     const imageUrl = form.imageUrl.value;
-//     const serviceName = form.serviceName.value;
-//     const price = form.price.value;
-//     const serviceArea = form.serviceArea.value;
-//     const description = form.description.value;
-//     const provideremail = User.email;
-//     const providerphoto = User.photoURL;
-//     const providername = User.displayName;
-//     const newService = {
-//       imageUrl,
-//       serviceName,
-//       price,
-//       serviceArea,
-//       description,
-//       provideremail,
-//       providerphoto,
-//       providername,
-//     };
-//     console.log(newService);
-
-//     fetch(`http://localhost:5000/addservice?email=${data._id}`, {
-//       method: "PUT",
-//       headers: {
-//         "content-type": "application/json",
-//       },
-//       body: JSON.stringify(),
-//     })
-//       .then((res) => res.json())
-//       .then((data) => {
-//         console.log(data);
-//       });
-//   };
+  const handledelet = (_id) => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this service?"
+    );
+    if (confirmed) {
+      fetch(`http://localhost:5000/addservice/${_id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount) {
+            alert("Data deleted successfully");
+            // Remove the deleted item from the state
+            setData((prevData) => prevData.filter((item) => item._id !== _id));
+          }
+        });
+    }
+  };
 
   return (
     <div className="w-11/12 mx-auto py-10">
@@ -115,21 +83,50 @@ const handledelet = (_id) => {
             <div className="flex justify-between p-2">
               <Link
                 to={`/addservice2/${loadData._id}`}
-                
                 className="nav_link font-semibold "
               >
                 <span className="relative z-10">Edit</span>
               </Link>
-              <button onClick={() => handledelet(loadData._id)} className="nav_link font-semibold ">
+              <button
+                onClick={() =>
+                  document.getElementById("my_modal_4").showModal()
+                }
+                // onClick={() => handledelet(loadData._id)}
+                className="nav_link font-semibold "
+              >
                 <span className="relative z-10">Delet</span>
               </button>
             </div>
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
-
+            {/* The button to open modal */}
+            {/* You can open the modal using document.getElementById('ID').showModal() method */}
+            <button
+              className="btn"
+              onClick={() => document.getElementById("my_modal_4").showModal()}
+            >
+              open modal
+            </button>
+            <dialog id="my_modal_4" className="modal">
+              <div className="modal-box w-11/12 max-w-5xl">
+                <h3 className="font-bold text-lg">Hello!</h3>
+                <p className="py-4">do you want to delete this service </p>
+                <div className="modal-action">
+                  <form method="dialog">
+                    {/* if there is a button, it will close the modal */}
+                    <button
+                      onClick={() => handledelet(loadData._id)}
+                      className="btn"
+                    >
+                      Close
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
             {/* ....................... */}
             <dialog id="my_modal_3" className="modal">
               <div className="modal-box">
-                <form  method="dialog">
+                <form method="dialog">
                   {/* if there is a button in form, it will close the modal */}
                   <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
                     ✕
