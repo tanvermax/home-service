@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
-import './addservic.css'
+import "./addservic.css";
+import { useNavigate } from "react-router-dom";
+
 
 const Addservices = () => {
   const { User } = useContext(AuhtContext);
   console.log("Logged in User:", User);
-
+  const navigate = useNavigate();
   const handleAddService = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -15,16 +17,18 @@ const Addservices = () => {
     const serviceArea = form.serviceArea.value;
     const description = form.description.value;
     const provideremail = User.email;
-    const providerphoto= User.photoURL;
+    const providerphoto = User.photoURL;
     const providername = User.displayName;
-    
 
     const newService = {
       imageUrl,
       serviceName,
       price,
       serviceArea,
-      description,provideremail,providerphoto,providername
+      description,
+      provideremail,
+      providerphoto,
+      providername,
     };
 
     console.log("New Service:", newService);
@@ -40,8 +44,10 @@ const Addservices = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
+          navigate("/allservices");
           alert("Service added successfully!");
           form.reset();
+          
         }
       })
       .catch((err) => console.error("Error adding service:", err));
@@ -115,13 +121,9 @@ const Addservices = () => {
             ></textarea>
           </div>
           <div className="text-center">
-          <button
-            type="submit"
-            className="nav_link    "
-          >
-             <span className="relative z-10  "> Add Service</span>
-           
-          </button>
+            <button type="submit" className="nav_link    ">
+              <span className="relative z-10  "> Add Service</span>
+            </button>
           </div>
         </form>
       </div>

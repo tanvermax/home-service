@@ -47,7 +47,7 @@ const Editservice = () => {
   return (
     <div>
       <div className="w-9/12 mx-auto">
-        <form onSubmit={handleEdit}>
+       <form onSubmit={handleEdit}> 
           <div className="form-control">
             <label className="label">
               <span className="label-text">ServiceId</span>

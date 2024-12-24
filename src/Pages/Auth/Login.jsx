@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 
 const Login = () => {
   const { googlelogin,loginwihtpass } = useContext(AuhtContext);
 
+
+  const navigate = useNavigate()
   const handlelogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -17,7 +19,7 @@ const Login = () => {
     loginwihtpass(email,password)
     .then(result=>{
       console.log(result.user);
-      
+      navigate('/')
     })
     .catch((error) => {
       const errorCode = error.code;

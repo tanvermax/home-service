@@ -14,32 +14,32 @@ const Section1 = () => {
       </h1>
       <div className="grid grid-cols-2 py-2 w-9/12 mx-auto">
         <div className="grid grid-cols-2 gap-10">
-          <div>
+          <div className="flex items-center gap-4">
             <span className="text-7xl text-teal-500  ml-2">
               <RiSurgicalMaskLine />
             </span>
-            <p>Ensuring Masks</p>
+            <p className="text-2xl font-semibold">Ensuring <br /> Masks</p>
           </div>
-          <div>
+          <div className="flex items-center gap-4">
             <span className="text-7xl text-teal-500 ml-2">
               <MdOutlineSupportAgent />
             </span>
 
-            <p>24/7 Support</p>
+            <p className="text-2xl font-semibold">24/7 <br /> Support</p>
           </div>
-          <div>
+          <div className="flex items-center gap-4">
             <span className="text-7xl text-teal-500 ml-2">
               <MdOutlineWash />
             </span>
 
-            <p>Sanitising Hands & Equipment</p>
+            <p className="text-2xl font-semibold">Sanitising Hands & Equipment</p>
           </div>
-          <div>
+          <div className="flex items-center gap-4">
             <span className="text-7xl text-teal-500 ml-2">
               <GiGloves />
             </span>
 
-            <p>Ensuring Gloves</p>
+            <p className="text-2xl font-semibold">Ensuring Gloves</p>
           </div>
         </div>
         <div>
@@ -67,7 +67,7 @@ const Section1 = () => {
                 ></path>
               </svg>
             </div>
-            <div className="stat-title">Total Likes</div>
+            <div className="stat-title">Total install</div>
             <div className="stat-value text-primary">25.6K</div>
             <div className="stat-desc">21% more than last month</div>
           </div>
@@ -88,21 +88,15 @@ const Section1 = () => {
                 ></path>
               </svg>
             </div>
-            <div className="stat-title">Page Views</div>
+            <div className="stat-title">Website Views</div>
             <div className="stat-value text-secondary">2.6M</div>
             <div className="stat-desc">21% more than last month</div>
           </div>
 
           <div className="stat">
-            <div className="stat-figure text-secondary">
-              <div className="avatar online">
-                <div className="w-16 rounded-full">
-                  <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                </div>
-              </div>
-            </div>
+           
             <div className="stat-value">86%</div>
-            <div className="stat-title">Tasks done</div>
+            <div className="stat-title">Order done on day delvery</div>
             <div className="stat-desc text-secondary">31 tasks remaining</div>
           </div>
         </div>
