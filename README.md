@@ -44,144 +44,144 @@ The platform focuses on providing a user-friendly experience with features like 
 
 - Public route showing all available services in a one-column layout.
 
--Each service card displays:
+- Each service card displays:
 
--- Service Image
+-  Service Image
 
--- Service Name
+-  Service Name
 
--- Short Description (max 100 characters)
+-  Short Description (max 100 characters)
 
--- View Detail Button
+-  View Detail Button
 
--- Service Provider Image, Name
+-  Service Provider Image, Name
 
--- Service Area
+-  Service Area
 
--- Service Price
+-   Service Price
 
 ### Single Service Details (Private):
 
-Shows detailed information about a specific service.
+- Shows detailed information about a specific service.
 
-Includes a "Book Now" button.
+- Includes a "Book Now" button.
 
-Booking modal/form contains fields:
+- Booking modal/form contains fields:
 
-Non-editable: Service ID, Service Name, Service Image, Provider Email, Provider Name, Current User Email, Current User Name, Price
+-  Non-editable: Service ID, Service Name, Service Image, Provider Email, Provider Name, Current User Email, Current User Name, Price
 
-Editable: Service Taking Date, Special Instruction
+-E  ditable: Service Taking Date, Special Instruction
 
-Booking information is stored in the database with a default status of "pending".
+-Booking information is stored in the database with a default status of "pending".
 
-Add-A-Service Page (Private):
+### Add-A-Service Page (Private):
 
-Allows users to add a service with fields:
+- Allows users to add a service with fields:
 
-Service Image URL
+-  Service Image URL
 
-Service Name
+-  Service Name
 
-Price
+-  Price
 
-Service Area
+-  Service Area
 
-Description
+-  Description
 
-Captures service provider information (image, name, email) from Firebase.
+- Captures service provider information (image, name, email) from Firebase.
 
-Manage-Services Page (Private):
+### Manage-Services Page (Private):
 
-Displays all services added by the logged-in user.
+- Displays all services added by the logged-in user.
 
-Each service card includes Edit and Delete buttons.
+- Each service card includes Edit and Delete buttons.
 
-Edit: Opens a form/modal for updating the service.
+-  Edit: Opens a form/modal for updating the service.
 
-Delete: Prompts a confirmation before removing the service.
+-  Delete: Prompts a confirmation before removing the service.
 
-Booked Services Page (Private):
+### Booked Services Page (Private):
 
-Displays services booked by the logged-in user.
+- Displays services booked by the logged-in user.
 
-If no services are booked, shows a relevant message.
+- If no services are booked, shows a relevant message.
 
-Service To Do Page (Private):
+### Service To Do Page (Private):
 
-Displays all services booked by others where the logged-in user is the provider.
+- Displays all services booked by others where the logged-in user is the provider.
 
-Includes a dropdown for updating the service status ("pending", "working", "completed").
+- Includes a dropdown for updating the service status ("pending", "working", "completed").
 
-404 Error Page:
+### 404 Error Page:
 
-Displays a message for invalid routes.
+- Displays a message for invalid routes.
 
-Includes a button that redirects users to the Home Page.
+- Includes a button that redirects users to the Home Page.
 
-Navbar Design
+## Navbar Design
 
-Non-Logged-In Users:
+- Non-Logged-In Users:
 
-Home
+-  Home
 
-Services
+-  Services
 
-Login
+-  Login
 
-Logged-In Users:
+- Logged-In Users:
 
-Home
+-  Home
 
-Services
+-  Services
 
-Dashboard (Dropdown with links to Add Service, Manage Services, Booked Services, Service To Do)
+-  Dashboard (Dropdown with links to Add Service, Manage Services, Booked Services, Service To Do)
 
-Logout Button with User Image/Name
+-  Logout Button with User Image/Name
 
-Dynamic Features
+## Dynamic Features
 
-Search System:
+### Search System:
 
-Implements a search functionality based on service names on the All Services page.
+-Implements a search functionality based on service names on the All Services page.
 
-Filters and displays matching services in real-time.
+-  Filters and displays matching services in real-time.
 
-Theme Customization:
+-  Theme Customization:
 
-Provides a toggle button for switching between light and dark themes.
+-  Provides a toggle button for switching between light and dark themes.
 
-Dynamic Titling:
+- Dynamic Titling:
 
-Updates the website title dynamically based on the current route.
+-  Updates the website title dynamically based on the current route.
 
-JWT Authentication:
+- JWT Authentication:
 
-Creates a JWT token on login and stores it client-side.
+-  Creates a JWT token on login and stores it client-side.
 
-Sends the token with API calls and verifies it on private routes.
+-  Sends the token with API calls and verifies it on private ### routes.
 
-Layout
+### Layout
 
-Header: Contains a dynamic Navbar based on user authentication status.
+- Header: Contains a dynamic Navbar based on user authentication status.
 
-Footer: Includes:
+- Footer: Includes:
 
-Website logo and name
+- Website logo and name
 
-Copyright information
+- Copyright information
 
-Social media links (Facebook and LinkedIn)
+- Social media links (Facebook and LinkedIn)
 
-Technologies Used
+- Technologies Used
 
-Frontend: React.js, Firebase Authentication
+- Frontend: React.js, Firebase Authentication
 
-Backend: Node.js, Express.js
+- Backend: Node.js, Express.js
 
-Database: MongoDB
+- Database: MongoDB
 
-Styling: Tailwind CSS / CSS Frameworks
+- Styling: Tailwind CSS / CSS Frameworks
 
-Animations: Framer Motion / AOS
+- Animations: Framer Motion / AOS
 
-Authentication: Firebase + JWT
+- Authentication: Firebase + JWT
