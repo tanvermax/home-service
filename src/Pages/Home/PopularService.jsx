@@ -5,7 +5,7 @@ const PopularService = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/addservice")
+    fetch("http://localhost:5000/addservice?limit=6")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);

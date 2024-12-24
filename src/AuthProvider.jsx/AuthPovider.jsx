@@ -11,6 +11,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import axios from "axios";
+import { data } from "react-router-dom";
 const gooogleprovider = new GoogleAuthProvider();
 
 const AuthPovider = ({ children }) => {
@@ -44,9 +45,18 @@ const AuthPovider = ({ children }) => {
       console.log("state capture", currentUser);
       if (currentUser?.email) {
         const user =  {email : currentUser.email}
-        axios.post('http://localhost:5000/jwt', user)
+        axios.post('http://localhost:5000/jwt', user,{
+          withCredentials:true
+        })
         .then(res=>
           console.log(res.data)
+        )
+      }
+      else{
+        axios.post('http://localhost:5000/logout',{},{
+          withCredentials:true
+        })
+        .then(res=> console.log("logou", res,data)
         )
       }
       setLoading(false);

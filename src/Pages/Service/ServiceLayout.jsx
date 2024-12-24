@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 
 const ServiceLayout = () => {
   const { User } = useContext(AuhtContext);
@@ -8,9 +9,15 @@ const ServiceLayout = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/order?email2=${User.email}`)
-      .then((res) => res.json())
-      .then((card) => setData(card));
+    axios
+      .get(`http://localhost:5000/order?email2=${User.email}`, {
+        withCredentials: true,
+      })
+      .then((res) => setData(res.data));
+
+    // fetch(`http://localhost:5000/order?email2=${User.email}`)
+    //   .then((res) => res.json())
+    //   .then((card) => setData(card));
   }, [User.email]);
 
   const handleStatusChange = (e, id) => {
