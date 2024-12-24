@@ -1,44 +1,44 @@
-#Service Sharing Web Application
+# Service Sharing Web Application
 
-##Project Overview
+## Project Overview
 
 <ins>This project is a service-sharing web application that allows users to perform various actions, including: </ins>
 
--Adding, updating, and deleting their own services.
+- Adding, updating, and deleting their own services.
 
--Browsing services shared by others.
+- Browsing services shared by others.
 
--Viewing details of specific services.
+- Viewing details of specific services.
 
--Booking services.
+- Booking services.
 
--Managing the statuses of booked services.
+- Managing the statuses of booked services.
 
 The platform focuses on providing a user-friendly experience with features like service management, booking, and status updates.
 
-#Features
+# Features
 
-##Authentication
+## Authentication
 
--Login Page: Supports Email/Password-based login and Google Sign-In.
+- Login Page: Supports Email/Password-based login and Google Sign-In.
 
--Registration Page: Supports user registration with fields for Name, Email, Password, and Photo URL. Includes Google Sign-In.
+- Registration Page: Supports user registration with fields for Name, Email, Password, and Photo URL. Includes Google Sign-In.
 
--Relevant error messages are displayed for incorrect inputs.
+- Relevant error messages are displayed for incorrect inputs.
 
-##Pages and Routes
+## Pages and Routes
 
-###Home Page:
+### Home Page:
 
--Contains a banner/slider for a visually appealing landing page.
+- Contains a banner/slider for a visually appealing landing page.
 
--Displays popular services with a limit of 6 services.
+- Displays popular services with a limit of 6 services.
 
--Includes a "Show All" button that redirects to the All Services page.
+- Includes a "Show All" button that redirects to the All Services page.
 
--Includes at least two additional unique sections for enhanced engagement.
+- Includes at least two additional unique sections for enhanced engagement.
 
--Utilizes animations for an attractive user experience.
+- Utilizes animations for an attractive user experience.
 
 All Services Page:
 
