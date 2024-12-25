@@ -15,9 +15,9 @@ const Home = () => {
   
   return (
     <>
-    <div className="-z-50">
+    
     <Banner></Banner>
-    </div>
+   
     <div className="w-11/12 mx-auto">
       <Helmet>
         <title>Home - Service Sharing</title>

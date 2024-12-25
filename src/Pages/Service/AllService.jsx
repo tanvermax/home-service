@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { BsMic } from "react-icons/bs";
+import { CiSearch } from "react-icons/ci";
+
 import { Link, useLoaderData } from "react-router-dom";
 
 const AllService = () => {
@@ -13,9 +16,16 @@ const AllService = () => {
       <Helmet>
       <title>ALL service - Service Sharing</title>
       </Helmet>
-      <h1 className="py-4 text-2xl ml-5 font-medium">ALL SERVICES Here What You Need</h1>
 
-      <input placeholder="search your service" onChange={(e)=>setSearch(e.target.value)} className="border-2 border-black" type="search" name="" id="" />
+     <div className="flex items-center justify-between">
+     <h1 className="py-4 text-2xl ml-5 font-medium">ALL SERVICES Here What You Need</h1>
+
+    <div className="flex items-center">
+   <span className="text-2xl mr-3"> <CiSearch /></span>
+     <input  placeholder="search your service" onChange={(e)=>setSearch(e.target.value)} className="border-[1px] p-2  border-black" type="search" name="" id="" />
+    <span className="relative p-1 right-8 text-blue-500 border-l-2 border-gray-400 "> <BsMic /></span>
+    </div>
+     </div>
       <div className="grid grid-cols-3 gap-14 py-9">
         
         {loadeDAta.filter(card=>{return search === "" ? true : card.serviceName.toLowerCase().includes(search.toLowerCase());
@@ -29,7 +39,7 @@ const AllService = () => {
               <div className="flex justify-between">
                 <div>
                   <h2 className="card-title">{card.serviceName}</h2>
-                  <p className="h-14 text-gray-600 overflow-hidden">
+                  <p className="h-14 text-xs text-gray-600 overflow-hidden">
                     {card.description} in{" "}
                     <span className="badge badge-secondary font-semibold">
                       {card.serviceArea}

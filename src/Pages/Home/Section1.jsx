@@ -9,7 +9,7 @@ import Aos from "aos";
 const Section1 = () => {
   useEffect(() => {
     Aos.init({
-      duration: 1000,
+      duration: 3000,
       once: true,
     });
   }, []);
