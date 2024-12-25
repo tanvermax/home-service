@@ -7,6 +7,7 @@ import image3 from "./../../assets/pexels-binyaminmellish-1396132.jpg";
 import "slick-carousel/slick/slick.css"; 
 
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 
 
 const Banner = () => {
@@ -23,22 +24,22 @@ const Banner = () => {
   const slides = [
     {
       id: 1,
-      title: "Discover the Latest Tech Trends",
+      title: "Transform Your Home, Stress-Free – Trusted Services at Your Doorstep!",
       description:
-        "Explore cutting-edge gadgets and smart devices at unbeatable prices.",
+        "Get hassle-free home transformations with reliable, professional service that fits your schedule and budget.",
       image: image1,
     },
     {
       id: 2,
-      title: "Upgrade Your Life with Smart Gadgets",
-      description: "Innovative solutions for a smarter, more connected future.",
+      title: "Your Home, Our Expertise – Quality Services You Deserve!",
+      description: "Top-notch craftsmanship for repairs and renovations, delivered with precision and care.",
       image: image2,
     },
     {
       id: 3,
-      title: "Experience the Future of Technology",
+      title: "From Repairs to Renovations – We Bring Your Vision to Life!",
       description:
-        "Join our community and stay ahead with the latest tech products.",
+        "rom small fixes to major makeovers, our experts bring your ideas to life with exceptional quality.",
       image: image3,
     },
   ];
@@ -59,9 +60,9 @@ const Banner = () => {
                     {slide.title}
                   </h1>
                   <p data-aos="fade-up" className="text-lg md:text-xl mb-6">{slide.description}</p>
-                  <button data-aos="fade-right" className="navlink ">
+                  <Link to={'/allservices'} data-aos="fade-right" className="navlink ">
                     <span className="relative z-10 text-white hover:text-yellow-400" >Shop Now</span>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

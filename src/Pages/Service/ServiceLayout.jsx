@@ -56,7 +56,7 @@ const ServiceLayout = () => {
       <Helmet>
         <title>To Do service</title>
       </Helmet>
-      <h1>Services to do: {data.length}</h1>
+      <h1>You have total {data.length} order</h1>
       <div className="grid grid-cols-3 gap-5 p-4">
         {data.map((card) => (
           <div key={card._id} className="border-[1px] border-teal-600 p-1">
@@ -102,20 +102,19 @@ const ServiceLayout = () => {
                 />
               </div>
               <div className="form-control">
-                <label className="label">
+                <label className="label border-2 p-5">
                   <span className="label-text">Service Status</span>
                 </label>
-                <select
-                  className="input"
-                  name="serviceStatus"
-                  defaultValue={card.serviceStatus}
-                >
-                  <option value="pending">Pending</option>
+                <select className="p-5" name="serviceStatus" defaultValue={card.serviceStatus}>
+                  <option className="p-5" value="pending">Pending</option>
                   <option value="working">Working</option>
                   <option value="complete">Complete</option>
                 </select>
               </div>
-              <input type="submit" className="btn" value="Update Status" />
+              <div className="py-5">
+              <input type="submit" className="border-[1px]  p-3 border-black hover:bg-black hover:text-white" value="Update Status" />
+
+              </div>
             </form>
           </div>
         ))}
