@@ -43,7 +43,7 @@ const Banner = () => {
     },
   ];
   return (
-    <div>
+    <div className="relative -z-50">
       <div className="w-full overflow-hidden">
         <Slider {...settings}>
           {slides.map((slide) => (

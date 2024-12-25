@@ -27,7 +27,7 @@ const Nabver = () => {
       {User ? (
         <>
           {" "}
-          <div className="dropdown dropdown-hover ">
+          <div className="dropdown dropdown-hover z-50">
             <div tabIndex={0} role="button" className=" m-1">
               <div className="nav-link bottom-1">
                 <NavLink >
@@ -37,7 +37,7 @@ const Nabver = () => {
             </div>
             <ul
               tabIndex={0}
-              className="dropdown-content menu gap-3 bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+              className=" dropdown-content menu gap-3 bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
             >
               <NavLink className="nav-link" to={"/addService"}>
                 <span className="relative z-10  ">Add-A-Service</span>
