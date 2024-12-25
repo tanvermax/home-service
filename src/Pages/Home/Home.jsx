@@ -22,7 +22,9 @@ const Home = () => {
       </Helmet>
     
      <PopularService></PopularService>
+     <div className="py-10">
      <Section1></Section1>
+     </div>
      <Section3></Section3>
      <Section2></Section2>
       {/* {User.displayName ? User.displayName : " "} */}

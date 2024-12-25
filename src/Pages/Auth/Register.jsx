@@ -5,11 +5,19 @@ import { Link, useNavigate } from "react-router-dom";
 import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 import { use } from "react";
 import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
+import 'aos/dist/aos.css';
+import Aos from "aos";
 
 const Register = () => {
   const { registerwihtgmail, googlelogin, setUser, updateUser } =
     useContext(AuhtContext);
-
+    useEffect(() => {
+      Aos.init({
+        duration: 1000,
+        once: true,
+      });
+    }, []);
   const navigate = useNavigate();
   const handleregisteruser = (e) => {
     e.preventDefault();
@@ -53,7 +61,7 @@ const Register = () => {
       </Helmet>
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
+          <div data-aos="fade-right" className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Register now!</h1>
             <p className="py-6">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
@@ -61,7 +69,7 @@ const Register = () => {
               et a id nisi.
             </p>
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <div data-aos="fade-left" className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <form onSubmit={handleregisteruser} className="card-body">
               <div className="form-control">
                 <label className="label">

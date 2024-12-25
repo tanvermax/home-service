@@ -1,10 +1,20 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import "./navber.css";
+import 'aos/dist/aos.css';
 import { NavLink } from "react-router-dom";
 import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
+import Aos from "aos";
 
 const Nabver = () => {
   const { User, logout } = useContext(AuhtContext);
+
+
+  useEffect(() => {
+    Aos.init({
+      duration: 2000, // Duration of animations in milliseconds
+      once: true, // Whether animation should happen only once - while scrolling down
+    });
+  }, []);
   const navber = (
     <>
       <NavLink className="nav-link" to={"/"}>
@@ -75,16 +85,16 @@ const Nabver = () => {
               </svg>
             </div>
             <ul
-              tabIndex={0}
+              tabIndex={0} data-aos="fade-right"
               className="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               {navber}
             </ul>
           </div>
-          <img className="h-20" src="/src/assets/logo2.png" alt="" />
+          <img data-aos="fade-right" className="h-20" src="/src/assets/logo2.png" alt="" />
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu gap-4 menu-horizontal px-1">{navber}</ul>
+          <ul data-aos="fade-up" className="menu gap-4 menu-horizontal px-1">{navber}</ul>
         </div>
         <div className="navbar-end gap-3">
           {User ? (
@@ -95,7 +105,7 @@ const Nabver = () => {
               </button>
             </>
           ) : (
-            <NavLink className="nav-link " to={"/login"}>
+            <NavLink data-aos="fade-left" className="nav-link " to={"/login"}>
               <span className="relative z-10  "> login</span>
             </NavLink>
           )}

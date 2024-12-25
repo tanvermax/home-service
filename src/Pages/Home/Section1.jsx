@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { RiSurgicalMaskLine } from "react-icons/ri";
 import { MdOutlineWash } from "react-icons/md";
 import { GiGloves } from "react-icons/gi";
-
+import 'aos/dist/aos.css';
 import { MdOutlineSupportAgent } from "react-icons/md";
+import Aos from "aos";
 
 const Section1 = () => {
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
   return (
     <div className="py-10 ">
       <p className="text-xl">___Why Choose US</p>
@@ -13,28 +20,28 @@ const Section1 = () => {
         Because we care about your safety..
       </h1>
       <div className="grid grid-cols-2 py-2 w-9/12 mx-auto">
-        <div className="grid grid-cols-2 gap-10">
-          <div className="flex items-center gap-4">
+        <div  className="grid grid-cols-2 gap-10">
+          <div data-aos="fade-right" className="flex items-center gap-4">
             <span className="text-7xl text-teal-500  ml-2">
               <RiSurgicalMaskLine />
             </span>
             <p className="text-2xl font-semibold">Ensuring <br /> Masks</p>
           </div>
-          <div className="flex items-center gap-4">
+          <div data-aos="fade-left" className="flex items-center gap-4">
             <span className="text-7xl text-teal-500 ml-2">
               <MdOutlineSupportAgent />
             </span>
 
             <p className="text-2xl font-semibold">24/7 <br /> Support</p>
           </div>
-          <div className="flex items-center gap-4">
+          <div data-aos="fade-right" className="flex items-center gap-4">
             <span className="text-7xl text-teal-500 ml-2">
               <MdOutlineWash />
             </span>
 
             <p className="text-2xl font-semibold">Sanitising Hands & Equipment</p>
           </div>
-          <div className="flex items-center gap-4">
+          <div data-aos="fade-left" className="flex items-center gap-4">
             <span className="text-7xl text-teal-500 ml-2">
               <GiGloves />
             </span>
@@ -42,7 +49,7 @@ const Section1 = () => {
             <p className="text-2xl font-semibold">Ensuring Gloves</p>
           </div>
         </div>
-        <div>
+        <div data-aos="fade-left">
           <img className=" mx-auto h-[400px] p-10"
             src="https://cdn.pixabay.com/photo/2024/02/09/08/56/construction-8562655_960_720.png"
             alt=""

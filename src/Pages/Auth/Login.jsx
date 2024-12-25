@@ -1,12 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import 'aos/dist/aos.css';
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 import { Helmet } from "react-helmet-async";
+import Aos from "aos";
 
 const Login = () => {
   const { googlelogin,loginwihtpass } = useContext(AuhtContext);
-
+  useEffect(() => {
+    Aos.init({
+      duration: 1000, // Duration of animations in milliseconds
+      once: true, // Whether animation should happen only once - while scrolling down
+    });
+  }, []);
 
   const navigate = useNavigate()
   const handlelogin = (e) => {
@@ -35,7 +42,7 @@ const Login = () => {
       </Helmet>
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
+          <div data-aos="fade-up" className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>
             <p className="py-6">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
@@ -43,7 +50,7 @@ const Login = () => {
               et a id nisi.
             </p>
           </div>
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <div data-aos="fade-right" className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
             <form onSubmit={handlelogin} className="card-body">
               <div className="form-control">
                 <label className="label">
