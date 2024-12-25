@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
 
 const AllService = () => {
-  const loadeDAta = useLoaderData();
+  const data = useLoaderData();
+  const [loadeDAta, setData]= useState(data);
+
+  const [search, setSearch] = useState("");
+
   return (
     <div className="w-10/12 mx-auto">
       <Helmet>
       <title>ALL service - Service Sharing</title>
       </Helmet>
       <h1 className="py-4 text-2xl ml-5 font-medium">ALL SERVICES Here What You Need</h1>
+
+      <input placeholder="search your service" onChange={(e)=>setSearch(e.target.value)} className="border-2 border-black" type="search" name="" id="" />
       <div className="grid grid-cols-3 gap-14 py-9">
-        {loadeDAta.map((card) => (
+        
+        {loadeDAta.filter(card=>{return search === "" ? true : card.serviceName.toLowerCase().includes(search.toLowerCase());
+
+         }).map((card) => (
           <div key={card._id} className="card   shadow-xl">
             <figure>
               <img className="h-72 w-full" src={card.imageUrl} alt="Shoes" />
