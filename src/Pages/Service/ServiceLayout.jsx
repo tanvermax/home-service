@@ -10,12 +10,12 @@ const ServiceLayout = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/order?email2=${User.email}`, {
+      .get(`https://serverside-bay.vercel.app/order?email2=${User.email}`, {
         withCredentials: "include",
       })
       .then((res) => setData(res.data));
 
-    // fetch(`http://localhost:5000/order?email2=${User.email}`)
+    // fetch(`https://serverside-bay.vercel.app/order?email2=${User.email}`)
     //   .then((res) => res.json())
     //   .then((card) => setData(card));
   }, [User.email]);
@@ -28,7 +28,7 @@ const ServiceLayout = () => {
 
     console.log(`Updating service ID: ${id} with status: ${serviceStatus}`);
 
-    fetch(`http://localhost:5000/order/${id}`, {
+    fetch(`https://serverside-bay.vercel.app/order/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

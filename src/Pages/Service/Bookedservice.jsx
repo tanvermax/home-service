@@ -9,7 +9,7 @@ const Bookedservice = () => {
 console.log(User.email);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/order?email=${User.email}`,{
+    fetch(`https://serverside-bay.vercel.app/order?email=${User.email}`,{
       credentials:"include"
     })
       .then((res) => res.json())

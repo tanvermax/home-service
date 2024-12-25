@@ -35,7 +35,7 @@ const Addservices = () => {
     console.log("New Service:", newService);
 
     // Example: Sending data to the backend
-    fetch("http://localhost:5000/addservice", {
+    fetch("https://serverside-bay.vercel.app/addservice", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

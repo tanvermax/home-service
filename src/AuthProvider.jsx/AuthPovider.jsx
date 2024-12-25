@@ -17,8 +17,9 @@ const gooogleprovider = new GoogleAuthProvider();
 const AuthPovider = ({ children }) => {
   const [User, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [day,setDay]= useState(false);
 
-    console.log(User);
+ 
 
   const registerwihtgmail = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -42,10 +43,10 @@ const AuthPovider = ({ children }) => {
   useEffect(() => {
     const unsubscriber = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log("state capture", currentUser);
+      // console.log("state capture", currentUser);
       if (currentUser?.email) {
         const user =  {email : currentUser.email}
-        axios.post('http://localhost:5000/jwt', user,{
+        axios.post('https://serverside-bay.vercel.app/jwt', user,{
           withCredentials:true
         })
         .then(res=>
@@ -53,7 +54,7 @@ const AuthPovider = ({ children }) => {
         )
       }
       else{
-        axios.post('http://localhost:5000/logout',{},{
+        axios.post('https://serverside-bay.vercel.app/logout',{},{
           withCredentials:true
         })
         .then(res=> console.log("logou", res,data)
@@ -70,16 +71,21 @@ const AuthPovider = ({ children }) => {
     setLoading(true);
     return signOut(auth);
   };
+  const togglebutton=()=>{
+    setDay(prev => !prev);
+    console.log("hlw");
+    
+  }
 
   const auhtinfo = {
     registerwihtgmail,
     googlelogin,
-    User,
+    User,togglebutton,
     logout,
     setLoading,
     setUser,
     loginwihtpass,
-    loading,
+    loading,day,
     updateUser,
   };
 

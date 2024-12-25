@@ -31,7 +31,7 @@ const Register = () => {
         setUser(result.user);
         console.log(result.user.email);
         updateUser({ displayName: name, photoURL: photoURL });
-        fetch("http://localhost:5000/user", {
+        fetch("https://serverside-bay.vercel.app/user", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
