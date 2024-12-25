@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 import "./addservic.css";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 
 
 const Addservices = () => {
-  const { User } = useContext(AuhtContext);
+  const { User } = useContext(AuthContext);
   console.log("Logged in User:", User);
   const navigate = useNavigate();
   const handleAddService = (e) => {

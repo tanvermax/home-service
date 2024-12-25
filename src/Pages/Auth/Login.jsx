@@ -2,12 +2,12 @@ import React, { useContext, useEffect } from "react";
 import 'aos/dist/aos.css';
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
-import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 import { Helmet } from "react-helmet-async";
 import Aos from "aos";
+import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 
 const Login = () => {
-  const { googlelogin,loginwihtpass } = useContext(AuhtContext);
+  const { googlelogin,loginwihtpass } = useContext(AuthContext);
   useEffect(() => {
     Aos.init({
       duration: 1000, // Duration of animations in milliseconds

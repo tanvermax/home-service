@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
-import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 import { Helmet } from "react-helmet-async";
 import axios from "axios";
+import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 
 const ServiceLayout = () => {
-  const { User } = useContext(AuhtContext);
+  const { User } = useContext(AuthContext);
 
   const [data, setData] = useState([]);
 
   useEffect(() => {
     axios
       .get(`http://localhost:5000/order?email2=${User.email}`, {
-        withCredentials: true,
+        withCredentials: "include",
       })
       .then((res) => setData(res.data));
 

@@ -1,15 +1,14 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
-import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 import Banner from "./Banner";
 import PopularService from "./PopularService";
 import Section1 from "./Section1";
 import Section2 from "./Section2";
 import Section3 from "./Section3";
 import { Helmet } from "react-helmet-async";
+import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 
 const Home = () => {
-  const {User} = useContext(AuhtContext);
+  const {User} = useContext(AuthContext);
 
   // console.log(User.email);
   

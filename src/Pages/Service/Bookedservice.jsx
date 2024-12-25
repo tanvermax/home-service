@@ -1,22 +1,29 @@
 import React, { useContext, useEffect, useState } from "react";
-import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 import { Helmet } from "react-helmet-async";
+import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 
 const Bookedservice = () => {
-  const { User } = useContext(AuhtContext);
+  const { User } = useContext(AuthContext);
 
   const [data, setData] = useState([]);
+console.log(User.email);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/order?email=${User.email}`)
+    fetch(`http://localhost:5000/order?email=${User.email}`,{
+      credentials:"include"
+    })
       .then((res) => res.json())
-      .then((data) => setData(data));
+      .then((data) => {
+        console.log(data);
+        setData(data)
+        
+      });
   }, [User.email]);
 
   return (
     <div>
       <Helmet>
-        <title>Booked  Service</title>
+        <title>Booked Service</title>
       </Helmet>
       <h1 className="text-2xl w-9/12 mx-auto py-4">
         Here all your {data.length} booked servie
@@ -39,56 +46,57 @@ const Bookedservice = () => {
               </tr>
             </thead>
             <tbody>
-             
-              {
-                data.length === 0 ? (<div key={data._id} className="text-center text-gray-600">
-                    <h2 className="text-xl font-semibold">No bookings found!</h2>
-                    <p className="text-base">You haven't booked any services yet.</p>
-                    <p>
-                      <a href="/services" className="text-blue-500 underline">
-                        Browse services
-                      </a>{" "}
-                      to make your first booking.
-                    </p>
-                  </div>) : <>{data.map((card) => (
-                    <tr>
-                      <th>
-                        <label>
-                          <input type="checkbox" className="checkbox" />
-                        </label>
-                      </th>
-                      <td>
-                        <div className="flex items-center gap-3">
-                          <div className="avatar">
-                            <div className="mask mask-squircle h-12 w-12">
-                              <img
-                                src={User.photoURL}
-                                alt="Avatar Tailwind CSS Component"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="font-bold">
-                              {card.ordergivenusername}
-                            </div>
-                            <div className="text-sm opacity-50">{User.email}</div>
+              
+              {data.length === 0 ? (
+                <div key={data._id} className="text-center text-gray-600">
+                  <h2 className="text-xl font-semibold">No bookings found!</h2>
+                  <p className="text-base">
+                    You haven't booked any services yet.
+                  </p>
+                  <p>
+                    <a href="/services" className="text-blue-500 underline">
+                      Browse services
+                    </a>{" "}
+                    to make your first booking.
+                  </p>
+                </div>
+              ) : (
+                data.map((card,index) => (
+                  <tr key={index}>
+                    <th>
+                      <label>
+                        <input type="checkbox" className="checkbox" />
+                      </label>
+                    </th>
+                    <td>
+                      <div className="flex items-center gap-3">
+                        <div className="avatar">
+                          <div className="mask mask-squircle h-12 w-12">
+                            <img
+                              src={User.photoURL}
+                              alt="Avatar Tailwind CSS Component"
+                            />
                           </div>
                         </div>
-                      </td>
-                      <td>
-                        {card.instruction}
-                        <br />
-                        <span className="badge badge-ghost badge-sm">
-                          {card.servicename}
-                        </span>
-                      </td>
-                      <td className="text-green-400">{card.serviceStatus}</td>
-                      <th>
-                        <button className="btn btn-ghost btn-xs">details</button>
-                      </th>
-                    </tr>
-                  ))}</>
-              }
+                        <div>
+                          <div className="font-bold">{card.ordergivenusername}</div>
+                          <div className="text-sm opacity-50">{User.email}</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      {card.instruction}
+                      <br />
+                      <span className="badge badge-ghost badge-sm">{card.servicename}</span>
+                    </td>
+                    <td className={`${card.serviceStatus === "pending" ? "text-yellow-400" : card.serviceStatus === "complete" ? "text-green-400" : card.serviceStatus === "working"  ? "text-red-400"  : "text-gray-400" }`}>{card.serviceStatus}</td>
+                    <th>
+                      <button className="btn btn-ghost btn-xs">details</button>
+                    </th>
+                  </tr>
+                ))
+              )}
+              
             </tbody>
             {/* foot */}
             <tfoot>

@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import "./addservic.css";
-import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
+import AuthContext from "../../AuthProvider.jsx/AuhtContext";
+
 
 const SignleServices = () => {
-  const { User } = useContext(AuhtContext);
+  const { User } = useContext(AuthContext);
 
   const loadData = useLoaderData();
   console.log(loadData);

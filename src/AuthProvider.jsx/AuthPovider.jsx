@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import AuhtContext from "./AuhtContext";
 import auth from "../../firebase.init";
 import {
   createUserWithEmailAndPassword,
@@ -12,6 +11,7 @@ import {
 } from "firebase/auth";
 import axios from "axios";
 import { data } from "react-router-dom";
+import AuthContext from "./AuhtContext";
 const gooogleprovider = new GoogleAuthProvider();
 
 const AuthPovider = ({ children }) => {
@@ -84,8 +84,11 @@ const AuthPovider = ({ children }) => {
   };
 
   return (
-    <AuhtContext.Provider value={auhtinfo}>{children}</AuhtContext.Provider>
+    <AuthContext.Provider value={auhtinfo}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 
 export default AuthPovider;
+// <AuthContext.Provider value={auhtinfo}>{children}</AuthContext.Provider>

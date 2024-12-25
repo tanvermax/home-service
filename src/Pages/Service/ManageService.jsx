@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
+import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 
 const ManageService = () => {
-  const { User } = useContext(AuhtContext);
+  const { User } = useContext(AuthContext);
 
   const [data, setData] = useState([]);
 
@@ -17,23 +18,36 @@ const ManageService = () => {
   }, []);
 
   const handledelet = (_id) => {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this service?"
-    );
-    if (confirmed) {
-      fetch(`http://localhost:5000/addservice/${_id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.deletedCount) {
-            alert("Data deleted successfully");
-            // Remove the deleted item from the state
-            setData((prevData) => prevData.filter((item) => item._id !== _id));
-          }
-        });
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(result=>{
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/addservice/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount) {
+              setData((prevData) => prevData.filter((item) => item._id !== _id));
+              // Remove the deleted item from the state
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              });
+             
+            }
+          });
+      }
+    })
+    
   };
 
   return (
@@ -91,42 +105,18 @@ const ManageService = () => {
               >
                 <span className="relative z-10">Edit</span>
               </Link>
-              <button
-                onClick={() =>
-                  document.getElementById("my_modal_4").showModal()
-                }
+              <button 
+                onClick={() => handledelet(loadData._id)}
                 // onClick={() => handledelet(loadData._id)}
                 className="nav_link font-semibold "
               >
-                <span className="relative z-10">Delet</span>
+                <span  className="relative z-10">Delet</span>
               </button>
             </div>
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
             {/* The button to open modal */}
             {/* You can open the modal using document.getElementById('ID').showModal() method */}
-            <button
-              className="btn"
-              onClick={() => document.getElementById("my_modal_4").showModal()}
-            >
-              open modal
-            </button>
-            <dialog id="my_modal_4" className="modal">
-              <div className="modal-box w-11/12 max-w-5xl">
-                <h3 className="font-bold text-lg">Hello!</h3>
-                <p className="py-4">do you want to delete this service </p>
-                <div className="modal-action">
-                  <form method="dialog">
-                    {/* if there is a button, it will close the modal */}
-                    <button
-                      onClick={() => handledelet(loadData._id)}
-                      className="btn"
-                    >
-                      Close
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </dialog>
+           
             {/* ....................... */}
             <dialog id="my_modal_3" className="modal">
               <div className="modal-box">

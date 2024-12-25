@@ -2,11 +2,11 @@ import { useContext, useEffect } from "react";
 import "./navber.css";
 import "aos/dist/aos.css";
 import { NavLink } from "react-router-dom";
-import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
 import Aos from "aos";
+import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 
 const Nabver = () => {
-  const { User, logout } = useContext(AuhtContext);
+  const { User, logout } = useContext(AuthContext);
 
   useEffect(() => {
     Aos.init({

@@ -1,17 +1,15 @@
 import React, { useContext } from "react";
-import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
-import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
-import { use } from "react";
 import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
 import 'aos/dist/aos.css';
 import Aos from "aos";
+import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 
 const Register = () => {
   const { registerwihtgmail, googlelogin, setUser, updateUser } =
-    useContext(AuhtContext);
+    useContext(AuthContext);
     useEffect(() => {
       Aos.init({
         duration: 1000,

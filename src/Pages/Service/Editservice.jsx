@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import AuhtContext from "../../AuthProvider.jsx/AuhtContext";
+import AuthContext from "../../AuthProvider.jsx/AuhtContext";
+
 
 const Editservice = () => {
-    const {User}= useContext(AuhtContext);
+    const {User}= useContext(AuthContext);
 
   const data = useLoaderData();
 
