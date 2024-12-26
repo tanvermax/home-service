@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Slider from "react-slick";
 import './sevice.css'
 import image1 from "./../../assets/pexels-minan1398-906150.jpg";
@@ -8,9 +8,11 @@ import "slick-carousel/slick/slick.css";
 
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
+import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 
 
 const Banner = () => {
+  const {day}= useContext(AuthContext);
   const settings = {
     dots: true,
     infinite: true,
@@ -60,7 +62,7 @@ const Banner = () => {
                     {slide.title}
                   </h1>
                   <p data-aos="fade-up" className="text-lg md:text-xl mb-6">{slide.description}</p>
-                  <Link to={'/allservices'} data-aos="fade-right" className="navlink ">
+                  <Link to={'/allservices'} data-aos="fade-right" className={`${day ? "nav-link2 bg-black" : " nav-link "}`}>
                     <span className="relative z-10 text-white hover:text-yellow-400" >Shop Now</span>
                   </Link>
                 </div>

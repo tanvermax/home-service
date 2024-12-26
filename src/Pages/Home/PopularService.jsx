@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./sevice.css";
 import { Link } from "react-router-dom";
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 import Aos from "aos";
+import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 const PopularService = () => {
+  const { day } = useContext(AuthContext);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -17,13 +19,11 @@ const PopularService = () => {
       once: true, // Whether animation should happen only once - while scrolling down
     });
   }, []);
-  
 
   console.log(data);
 
   return (
     <div className="py-10">
-     
       <div className="grid grid-cols-3 gap-10">
         {data.map((card) => (
           <div key={card._id} data-aos="fade-up" className="shadow-xl">
@@ -46,7 +46,9 @@ const PopularService = () => {
                 </div>
               </div>
               <div className="card-actions justify-between items-center">
-                <div className=" text-xl">Service provider : {card.providername}</div>
+                <div className=" text-xl">
+                  Service provider : {card.providername}
+                </div>
                 <div className=" border-warning rounded-full border-2">
                   <img
                     className="h-14 w-14 rounded-full"

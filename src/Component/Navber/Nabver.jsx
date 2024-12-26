@@ -4,6 +4,7 @@ import "aos/dist/aos.css";
 import { NavLink } from "react-router-dom";
 import Aos from "aos";
 import AuthContext from "../../AuthProvider.jsx/AuhtContext";
+import { img } from "framer-motion/client";
 
 const Nabver = () => {
   const { User, logout,day, togglebutton} = useContext(AuthContext);
@@ -16,10 +17,10 @@ const Nabver = () => {
   }, []);
   const navber = (
     <>
-      <NavLink className="nav-link" to={"/"}>
+      <NavLink className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`}  to={"/"}>
         <span className="relative z-20  ">Home</span>
       </NavLink>
-      <NavLink className="nav-link " to={"/allservices"}>
+      <NavLink className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`} to={"/allservices"}>
         <span className="relative z-10  ">ALL Service</span>
       </NavLink>
 
@@ -28,7 +29,7 @@ const Nabver = () => {
           {" "}
           <div className="dropdown dropdown-hover ">
             <div tabIndex={0} role="button" className=" m-1">
-              <div className="nav-link bottom-1">
+              <div className={ `bottom-1 ${day ? "nav-link2 bg-black" : " nav-link bg-white"}`}>
                 <NavLink>
                   <span className="relative z-10  ">Dashbord</span>
                 </NavLink>
@@ -38,16 +39,16 @@ const Nabver = () => {
               tabIndex={0}
               className="  dropdown-content menu gap-3  rounded-box z-[1] w-52 p-2 shadow"
             >
-              <NavLink className="nav-link bg-white" to={"/addService"}>
+              <NavLink className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`} to={"/addService"}>
                 <span className="relative z-10  ">Add-A-Service</span>
               </NavLink>
-              <NavLink className="nav-link bg-white" to={"/manageservices"}>
+              <NavLink className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`}  to={"/manageservices"}>
                 <span className="relative z-10  ">Manage-Services</span>
               </NavLink>
-              <NavLink className="nav-link bg-white" to={"/bookedservice"}>
+              <NavLink className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`} to={"/bookedservice"}>
                 <span className="relative z-10  ">Booked Service</span>
               </NavLink>
-              <NavLink className="nav-link bg-white" to={"/servicetodo"}>
+              <NavLink className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`}  to={"/servicetodo"}>
                 <span className="relative z-10  ">Service To Do</span>
               </NavLink>
             </ul>
@@ -91,12 +92,17 @@ const Nabver = () => {
               {navber}
             </ul>
           </div>
-          <img
+          {day ? <img
             data-aos="fade-right"
             className="h-20"
-            src="/src/assets/logo2.png"
+            src="/src/assets/logo5.png"
             alt=""
-          />
+          /> : <img
+          data-aos="fade-right"
+          className="h-20"
+          src="/src/assets/logo2.png"
+          alt=""
+        />}
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul data-aos="fade-up" className="menu gap-4 menu-horizontal px-1">
@@ -108,13 +114,13 @@ const Nabver = () => {
             <>
               
               <img className="h-14 w-14 rounded-full border-black border-2" src={User.photoURL} alt="" />
-              <p>{User?.displayName ? User.displayName : User.email}</p>
-              <button onClick={logout} className="nav-link">
+              <p className={`${day ? "text-white" : "text-black"}`}>{User?.displayName ? User.displayName : User.email}</p>
+              <button onClick={logout} className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`}>
                 <span className="relative z-10  ">logout</span>
               </button>
             </>
           ) : (
-            <NavLink data-aos="fade-left" className="nav-link " to={"/login"}>
+            <NavLink data-aos="fade-left" className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`} to={"/login"}>
               <span className="relative z-10  "> login</span>
             </NavLink>
           )}

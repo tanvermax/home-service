@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import AuthContext from "../../AuthProvider.jsx/AuhtContext";
+import axios from "axios";
 
 const Bookedservice = () => {
   const { User } = useContext(AuthContext);
@@ -9,15 +10,25 @@ const Bookedservice = () => {
 console.log(User.email);
 
   useEffect(() => {
-    fetch(`https://serverside-bay.vercel.app/order?email=${User.email}`,{
-      credentials:"include"
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setData(data)
+    // axios
+    // .get(`https://serverside-bay.vercel.app/order?email2=${User.email}`, {
+    //   withCredentials: "include",
+    // })
+    // .then((res) => setData(res.data));
+ axios.get(`https://serverside-bay.vercel.app/order?email=${User.email}`,{
+  credentials: "include"
+ })
+ .then(res=>setData(res(data)))
+
+    // fetch(`https://serverside-bay.vercel.app/order?email=${User.email}`,{
+    //   credentials:"include"
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     setData(data)
         
-      });
+    //   });
   }, [User.email]);
 
   return (
@@ -61,8 +72,8 @@ console.log(User.email);
                   </p>
                 </div>
               ) : (
-                data.map((card,index) => (
-                  <tr key={index}>
+                data.map((card) => (
+                  <tr key={card._id}>
                     <th>
                       <label>
                         <input type="checkbox" className="checkbox" />

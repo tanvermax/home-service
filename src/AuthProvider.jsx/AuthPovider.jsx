@@ -17,7 +17,10 @@ const gooogleprovider = new GoogleAuthProvider();
 const AuthPovider = ({ children }) => {
   const [User, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [day,setDay]= useState(false);
+  const [day,setDay]= useState(()=>{
+    const savedDay = localStorage.getItem("day");
+    return savedDay ? JSON.parse(savedDay) :false ;
+  });
 
  
 
@@ -72,9 +75,11 @@ const AuthPovider = ({ children }) => {
     return signOut(auth);
   };
   const togglebutton=()=>{
-    setDay(prev => !prev);
-    console.log("hlw");
-    
+   setDay( prev=>{
+    const newday = !prev;
+    localStorage.setItem("day", JSON.stringify(newday));
+    return newday;
+   })
   }
 
   const auhtinfo = {
