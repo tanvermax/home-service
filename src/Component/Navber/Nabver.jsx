@@ -3,6 +3,8 @@ import "./navber.css";
 import "aos/dist/aos.css";
 import { NavLink } from "react-router-dom";
 import Aos from "aos";
+import logo1 from './../../assets/logo2.png'
+import logo2 from './../../assets/logo5.png'
 import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 import { img } from "framer-motion/client";
 
@@ -95,12 +97,12 @@ const Nabver = () => {
           {day ? <img
             data-aos="fade-right"
             className="lg:h-20 w-20 lg:w-48"
-            src="/src/assets/logo5.png"
+            src={logo2}
             alt=""
           /> : <img
           data-aos="fade-right"
           className="lg:h-20 w-20 lg:w-48"
-          src="/src/assets/logo2.png"
+          src={logo1}
           alt=""
         />}
         </div>
