@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from './../../assets/logo5.png'
 import logo1 from './../../assets/logo2.png'
+import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 
 const Fotter = () => {
+  const {day}= useContext(AuthContext);
   return (
     <div>
       <footer className=" pt-12 pb-6 px-10 font-[sans-serif] tracking-wide">
@@ -10,7 +12,7 @@ const Fotter = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="lg:flex lg:items-center">
             <a href="javascript:void(0)">
-              <img className="h-32" src={logo1} alt="logo"  />
+              { day ? <img className="h-32" src={logo} alt="logo"  /> :  <img className="h-32" src={logo1} alt="logo"  />}
             </a>
           </div>
 
@@ -47,43 +49,43 @@ const Fotter = () => {
           </div>
 
           <div>
-            <h4 className="text-lg mb-6 font-semibold ">Useful links</h4>
+            <h4 className={`text-lg mb-6 font-semibold ${day ? "text-white" : "text-black"}`}>Useful links</h4>
             <ul className="space-y-4 pl-2">
               <li>
-                <a href="javascript:void(0)" className="font-semibold hover:text-white text-sm">Featured</a>
+                <a href="javascript:void(0)" className={`font-semibold  text-base ${day ? "text-white" : "text-black"}` }>Featured</a>
               </li>
               <li>
-                <a href="javascript:void(0)" className="font-semibold hover:text-white text-sm">New Arrivals</a>
+                <a href="javascript:void(0)" className={`font-semibold  text-base ${day ? "text-white" : "text-black"}` }>New Arrivals</a>
               </li>
               <li>
-                <a href="javascript:void(0)" className="font-semibold hover:text-white text-sm">New Arrivals</a>
+                <a href="javascript:void(0)" className={`font-semibold  text-base ${day ? "text-white" : "text-black"}` }>New Arrivals</a>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg mb-6 font-semibold">Information</h4>
+            <h4 className={`text-lg mb-6 font-semibold ${day ? "text-white" : "text-black"}`}>Information</h4>
             <ul className="space-y-4 pl-2">
               <li>
-                <a href="javascript:void(0)" className="font-semibold hover:text-white text-sm">About Us</a>
+                <a href="javascript:void(0)" className={`font-semibold  text-base ${day ? "text-white" : "text-black"}` }>About Us</a>
               </li>
               <li>
-                <a href="javascript:void(0)" className="font-semibold hover:text-white text-sm">Terms &amp; Conditions</a>
+                <a href="javascript:void(0)" className={`font-semibold  text-base ${day ? "text-white" : "text-black"}` }>Terms &amp; Conditions</a>
               </li>
               <li>
-                <a href="javascript:void(0)" className="font-semibold hover:text-white text-sm">Privacy Policy</a>
+                <a href="javascript:void(0)" className={`font-semibold  text-base ${day ? "text-white" : "text-black"}` }>Privacy Policy</a>
               </li>
               <li>
-                <a href="javascript:void(0)" className="font-semibold hover:text-white text-sm">Sale</a>
+                <a href="javascript:void(0)" className={`font-semibold  text-base ${day ? "text-white" : "text-black"}` }>Sale</a>
               </li>
               <li>
-                <a href="javascript:void(0)" className="font-semibold hover:text-white text-sm">Documentation</a>
+                <a href="javascript:void(0)" className={`font-semibold  text-base ${day ? "text-white" : "text-black"}` }>Documentation</a>
               </li>
             </ul>
           </div>
         </div>
 
-        <p className='font-semibold text-sm mt-10'>© FixitNest. All rights reserved.
+        <p className={` font-semibold text-base ${day ? "text-white" : "text-black"}`}>© FixitNest. All rights reserved.
         </p>
       </div>
     </footer>

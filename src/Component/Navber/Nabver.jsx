@@ -71,7 +71,7 @@ const Nabver = () => {
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-5 w-5 "
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -135,7 +135,7 @@ const Nabver = () => {
 
             {/* sun icon */}
             <svg
-              className="swap-off h-10 w-10 fill-current"
+              className="swap-off h-10 w-10 fill-yellow-500"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
@@ -143,7 +143,7 @@ const Nabver = () => {
             </svg>
             {/* moon icon */}
             <svg
-              className="swap-on h-10 w-10 fill-current"
+              className="swap-on h-10 w-10 fill-white "
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
