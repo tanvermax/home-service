@@ -7,7 +7,7 @@ const Bookedservice = () => {
   const { User } = useContext(AuthContext);
 
   const [data, setData] = useState([]);
-console.log(User.email);
+  console.log(User.email);
 
   useEffect(() => {
     // axios
@@ -15,10 +15,11 @@ console.log(User.email);
     //   withCredentials: "include",
     // })
     // .then((res) => setData(res.data));
- axios.get(`https://serverside-bay.vercel.app/order?email=${User.email}`,{
-  credentials: "include"
- })
- .then(res=>setData(res(data)))
+    axios
+      .get(`https://serverside-bay.vercel.app/order?email=${User.email}`, {
+        withCredentials: true,
+      })
+      .then((res) => setData(res.data));
 
     // fetch(`https://serverside-bay.vercel.app/order?email=${User.email}`,{
     //   credentials:"include"
@@ -27,9 +28,9 @@ console.log(User.email);
     //   .then((data) => {
     //     console.log(data);
     //     setData(data)
-        
+
     //   });
-  }, [User.email]);
+  }, [User.email,setData]);
 
   return (
     <div>
@@ -57,7 +58,6 @@ console.log(User.email);
               </tr>
             </thead>
             <tbody>
-              
               {data.length === 0 ? (
                 <div key={data._id} className="text-center text-gray-600">
                   <h2 className="text-xl font-semibold">No bookings found!</h2>
@@ -90,7 +90,9 @@ console.log(User.email);
                           </div>
                         </div>
                         <div>
-                          <div className="font-bold">{card.ordergivenusername}</div>
+                          <div className="font-bold">
+                            {card.ordergivenusername}
+                          </div>
                           <div className="text-sm opacity-50">{User.email}</div>
                         </div>
                       </div>
@@ -98,16 +100,29 @@ console.log(User.email);
                     <td>
                       {card.instruction}
                       <br />
-                      <span className="badge badge-ghost badge-sm">{card.servicename}</span>
+                      <span className="badge badge-ghost badge-sm">
+                        {card.servicename}
+                      </span>
                     </td>
-                    <td className={`${card.serviceStatus === "pending" ? "text-yellow-400" : card.serviceStatus === "complete" ? "text-green-400" : card.serviceStatus === "working"  ? "text-red-400"  : "text-gray-400" }`}>{card.serviceStatus}</td>
+                    <td
+                      className={`${
+                        card.serviceStatus === "pending"
+                          ? "text-yellow-400"
+                          : card.serviceStatus === "complete"
+                          ? "text-green-400"
+                          : card.serviceStatus === "working"
+                          ? "text-red-400"
+                          : "text-gray-400"
+                      }`}
+                    >
+                      {card.serviceStatus}
+                    </td>
                     <th>
                       <button className="btn btn-ghost btn-xs">details</button>
                     </th>
                   </tr>
                 ))
               )}
-              
             </tbody>
             {/* foot */}
             <tfoot>

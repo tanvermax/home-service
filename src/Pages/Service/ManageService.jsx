@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import AuthContext from "../../AuthProvider.jsx/AuhtContext";
+import axios from "axios";
 
 const ManageService = () => {
   const { User } = useContext(AuthContext);
@@ -12,10 +13,20 @@ const ManageService = () => {
   console.log(data);
 
   useEffect(() => {
-    fetch(`https://serverside-bay.vercel.app/addservice?email=${User.email}`)
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
+    // .get(`https://serverside-bay.vercel.app/order?email2=${User.email}`, {
+      //   withCredentials: "include",
+      // })
+      // .then((res) => setData(res.data));
+
+    axios.get(`https://serverside-bay.vercel.app/addservice?email=${User.email}`,{
+      withCredentials :"include"
+    })
+    .then(res=>setData(res.data) )
+   
+    // fetch(`https://serverside-bay.vercel.app/addservice?email=${User.email}`)
+    //   .then((res) => res.json())
+    //   .then((data) => setData(data));
+  }, [User.email]);
 
   const handledelet = (_id) => {
     Swal.fire({

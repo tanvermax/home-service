@@ -33,7 +33,7 @@ const PopularService = () => {
             <div className="card-body">
               <div className="flex justify-between">
                 <div>
-                  <h2 className="card-title">
+                  <h2 className={`card-title ${day ? "text-white" : "text-black"}`}>
                     {card.serviceName}
                     <div className="badge  badge-secondary">NEW</div>
                   </h2>
@@ -42,11 +42,11 @@ const PopularService = () => {
                   </p>
                 </div>
                 <div>
-                  <p>{card.price}$</p>
+                  <p className={` ${day ? "text-white" : "text-black"}`}>{card.price}$</p>
                 </div>
               </div>
               <div className="card-actions justify-between items-center">
-                <div className=" text-xl">
+                <div className={`text-xl ${day ? "text-white" : "text-black"}`}>
                   Service provider : {card.providername}
                 </div>
                 <div className=" border-warning rounded-full border-2">

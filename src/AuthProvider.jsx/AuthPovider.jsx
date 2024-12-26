@@ -60,7 +60,7 @@ const AuthPovider = ({ children }) => {
         axios.post('https://serverside-bay.vercel.app/logout',{},{
           withCredentials:true
         })
-        .then(res=> console.log("logou", res,data)
+        .then(res=> console.log("logou", res.data)
         )
       }
       setLoading(false);

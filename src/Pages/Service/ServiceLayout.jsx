@@ -11,6 +11,9 @@ const ServiceLayout = () => {
   useEffect(() => {
     axios
       .get(`https://serverside-bay.vercel.app/order?email2=${User.email}`, {
+        headers: {
+          Authorization : `Barer ${localStorage.getItem('token')}`
+        },
         withCredentials: "include",
       })
       .then((res) => setData(res.data));

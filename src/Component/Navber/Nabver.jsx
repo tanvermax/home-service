@@ -30,9 +30,9 @@ const Nabver = () => {
           <div className="dropdown dropdown-hover ">
             <div tabIndex={0} role="button" className=" m-1">
               <div className={ `bottom-1 ${day ? "nav-link2 bg-black" : " nav-link bg-white"}`}>
-                <NavLink>
+                <button>
                   <span className="relative z-10  ">Dashbord</span>
-                </NavLink>
+                </button>
               </div>
             </div>
             <ul
