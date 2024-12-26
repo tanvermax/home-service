@@ -50,7 +50,7 @@ const Banner = () => {
       <div className="w-full overflow-hidden">
         <Slider {...settings}>
           {slides.map((slide) => (
-            <div key={slide.id} className="relative h-[650px]">
+            <div key={slide.id} className="relative h-[350px] lg:h-[650px]">
               {/* Background Image */}
               <div
                 className="w-full h-full bg-cover bg-center"
@@ -58,12 +58,12 @@ const Banner = () => {
               >
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/80 flex flex-col items-center justify-center text-center text-white px-4">
-                  <h1 data-aos="fade-left" className="text-4xl md:text-6xl font-bold mb-4">
+                  <h1 data-aos="fade-left" className="lg:text-4xl md:text-6xl font-bold mb-4">
                     {slide.title}
                   </h1>
-                  <p data-aos="fade-up" className="text-lg md:text-xl mb-6">{slide.description}</p>
+                  <p data-aos="fade-up" className="lg:text-lg text-[8px] md:text-xl mb-6">{slide.description}</p>
                   <Link to={'/allservices'} data-aos="fade-right" className={`${day ? "nav-link2 bg-black" : " nav-link "}`}>
-                    <span className="relative z-10 text-white hover:text-yellow-400" >Shop Now</span>
+                    <span className="relative z-10 text-white hover:text-yellow-400" >Get service</span>
                   </Link>
                 </div>
               </div>

@@ -9,10 +9,10 @@ const Fotter = () => {
     <div>
       <footer className=" pt-12 pb-6 px-10 font-[sans-serif] tracking-wide">
       <div className="max-w-screen-xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="lg:flex lg:items-center">
             <a href="javascript:void(0)">
-              { day ? <img className="h-32" src={logo} alt="logo"  /> :  <img className="h-32" src={logo1} alt="logo"  />}
+              { day ? <img className="lg:h-32" src={logo} alt="logo"  /> :  <img className="lg:h-32" src={logo1} alt="logo"  />}
             </a>
           </div>
 
@@ -85,7 +85,7 @@ const Fotter = () => {
           </div>
         </div>
 
-        <p className={` font-semibold text-base ${day ? "text-white" : "text-black"}`}>© FixitNest. All rights reserved.
+        <p className={` font-semibold lg:text-base text-[10px] ${day ? "text-white" : "text-gray-500 "}`}>© FixitNest. All rights reserved.
         </p>
       </div>
     </footer>

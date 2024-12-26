@@ -34,7 +34,6 @@ const Bookedservice = () => {
             {/* Table Header */}
             <thead>
               <tr className="bg-gray-800 text-white">
-                <th className="px-4 py-2 text-left">Select</th>
                 <th className="px-4 py-2 text-left">Name</th>
                 <th className="px-4 py-2 text-left">Order/Location</th>
                 <th className="px-4 py-2 text-left hidden md:table-cell">
@@ -66,54 +65,48 @@ const Bookedservice = () => {
               ) : (
                 data.map((card) => (
                   <tr
-                  key={card._id}
-                  className="hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200"
-                >
-                  <td className="px-2 py-2">
-                    <label>
-                      <input type="checkbox" className="checkbox" />
-                    </label>
-                  </td>
-                  <td className="px-2 py-2 flex items-center gap-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle h-10 w-10">
-                        <img src={User.photoURL} alt="Avatar" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="font-semibold text-xs md:text-sm">
-                        {card.ordergivenusername}
-                      </div>
-                      <div className="text-xs opacity-70">{User.email}</div>
-                    </div>
-                  </td>
-                  <td className="px-2 py-2 text-xs md:text-sm">
-                    {card.instruction}
-                    <br />
-                    <span className="badge badge-ghost badge-xs md:badge-sm">
-                      {card.servicename}
-                    </span>
-                  </td>
-                  <td
-                    className={`px-2 py-2 ${
-                      card.serviceStatus === "pending"
-                        ? "text-yellow-500"
-                        : card.serviceStatus === "complete"
-                        ? "text-green-500"
-                        : card.serviceStatus === "working"
-                        ? "text-red-500"
-                        : "text-gray-500"
-                    }`}
+                    key={card._id}
+                    className="hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200"
                   >
-                    {card.serviceStatus}
-                  </td>
-                  <td className="px-2 py-2">
-                    <button className="btn btn-ghost btn-xs text-blue-500 hover:text-blue-700 transition-all duration-200">
-                      Details
-                    </button>
-                  </td>
-                </tr>
-                
+                    <td className="px-2 py-2 flex items-center gap-3">
+                      <div className="avatar">
+                        <div className="mask mask-squircle h-10 w-10">
+                          <img src={User.photoURL} alt="Avatar" />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-xs md:text-sm">
+                          {card.ordergivenusername}
+                        </div>
+                        <div className="text-xs opacity-70">{User.email}</div>
+                      </div>
+                    </td>
+                    <td className="px-2 py-2 text-xs md:text-sm">
+                      {card.instruction}
+                      <br />
+                      <span className="badge badge-ghost badge-xs md:badge-sm">
+                        {card.servicename}
+                      </span>
+                    </td>
+                    <td
+                      className={`px-2 py-2 ${
+                        card.serviceStatus === "pending"
+                          ? "text-yellow-500"
+                          : card.serviceStatus === "complete"
+                          ? "text-green-500"
+                          : card.serviceStatus === "working"
+                          ? "text-red-500"
+                          : "text-gray-500"
+                      }`}
+                    >
+                      {card.serviceStatus}
+                    </td>
+                    <td className="px-2 py-2">
+                      <button className="btn btn-ghost btn-xs text-blue-500 hover:text-blue-700 transition-all duration-200">
+                        Details
+                      </button>
+                    </td>
+                  </tr>
                 ))
               )}
             </tbody>

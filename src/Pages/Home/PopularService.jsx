@@ -25,10 +25,10 @@ const PopularService = () => {
   console.log(data);
 
   return (
-    <div className={`py-10 ${day ? "bg-black" : "bg-white"}`}>
+    <div className={`lg:py-10 py-2 ${day ? "bg-black" : "bg-white"}`}>
       <div className="w-11/12 mx-auto text-center mb-10">
         <h2
-          className={`text-3xl md:text-4xl font-bold ${
+          className={`lg:text-3xl md:text-4xl font-bold ${
             day ? "text-white" : "text-black"
           }`}
           data-aos="fade-down"
@@ -36,7 +36,7 @@ const PopularService = () => {
           Popular Services
         </h2>
         <p
-          className={`text-sm md:text-lg mt-3 ${
+          className={`text-xs md:text-lg lg:mt-3 ${
             day ? "text-gray-400" : "text-gray-600"
           }`}
           data-aos="fade-down"
@@ -68,15 +68,15 @@ const PopularService = () => {
               <div className="flex justify-between items-start">
                 <div>
                   <h2
-                    className={`card-title text-xl font-semibold ${
+                    className={`card-title text-base lg:text-xl font-semibold ${
                       day ? "text-white" : "text-black"
                     }`}
                   >
                     {card.serviceName}
-                    <div className="badge badge-secondary ml-2">NEW</div>
+                    <div className="badge badge-secondary lg:text-base text-xs ml-2">NEW</div>
                   </h2>
                   <p
-                    className={`h-16 text-sm overflow-hidden mt-2 ${
+                    className={`h-16 lg:text-sm text-xs overflow-hidden mt-2 ${
                       day ? "text-gray-400" : "text-gray-600"
                     }`}
                   >
@@ -85,7 +85,7 @@ const PopularService = () => {
                 </div>
                 <div>
                   <p
-                    className={`font-bold text-lg ${
+                    className={`font-bold lg:text-lg text-sm ${
                       day ? "text-white" : "text-black"
                     }`}
                   >
@@ -111,11 +111,11 @@ const PopularService = () => {
               </div>
               <Link to={`/addservice/${card._id}`}>
                 <button
-                  className={`mt-5 w-full py-2 rounded-lg font-medium ${
-                    day ? "bg-gray-700 text-white" : "bg-blue-500 text-white"
-                  } hover:bg-blue-600`}
+                  className={`lg:mt-5 mt-2 w-full py-2 font-medium ${
+                    day ? "navlink2  text-white" : "navlink text-white"
+                  } `}
                 >
-                  View Detail
+                  <span className="relative z-10">View Detail</span>
                 </button>
               </Link>
             </div>

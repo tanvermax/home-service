@@ -50,7 +50,7 @@ const Addservices = () => {
   };
 
   return (
-    <div className={`flex items-center justify-center min-h-screen ${day ? "bg-black" : "bg-white"}`}>
+    <div className={`flex p-5 items-center justify-center min-h-screen ${day ? "bg-black" : "bg-white"}`}>
       <Helmet>
         <title>ADD Service Sharing</title>
       </Helmet>

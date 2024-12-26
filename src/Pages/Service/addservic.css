@@ -1,6 +1,6 @@
 .nav_link {
   @apply text-center py-3 text-base text-black
-   relative h-full w-64
+   relative lg:h-full lg:w-64
     overflow-hidden
      border
      border-black shadow-2xl
@@ -34,7 +34,7 @@
 
 .nav_link2 {
   @apply text-center py-3 text-base text-white
-   relative h-full w-64
+   relative lg:h-full lg:w-64 
     overflow-hidden
      border
      border-white shadow-2xl

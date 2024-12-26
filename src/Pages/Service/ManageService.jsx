@@ -94,10 +94,10 @@ const ManageService = () => {
                 <h2 className="text-xl font-semibold mb-2">
                   {loadData.serviceName}
                 </h2>
-                <p className="text-sm mb-2">
+                <p className="lg:text-sm mb-2">
                   {loadData.description}
                   <br />
-                  <span className="badge badge-secondary">
+                  <span className="badge text-[8px] lg:text-base  badge-secondary">
                     {loadData.serviceArea}
                   </span>
                 </p>

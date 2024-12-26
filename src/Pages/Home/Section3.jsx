@@ -4,28 +4,28 @@ import { FaGooglePlay } from "react-icons/fa";
 
 const Section3 = () => {
     return (
-        <div className='py-10'>
-            <div className="bg-yellow-400 flex items-center justify-between p-6 rounded-lg mx-auto w-11/12 md:w-9/12">
+        <div className='lg:py-10'>
+            <div className="bg-yellow-400 flex items-center justify-between lg:p-6 p-3 rounded-lg mx-auto w-11/12 md:w-9/12">
 
                 <div className="flex items-center space-x-4">
                     <div className="rounded-full flex items-center justify-center">
                         <img 
                             src="https://joboy.in/assets/images/download-aap-now.png" 
                             alt="Mobile Icon" 
-                            className="w-20 h-20" 
+                            className="lg:w-20 lg:h-20" 
                         />
                     </div>
-                    <p className="text-black font-medium text-sm md:text-base">
+                    <p className="text-black font-medium text-[8px] md:text-base">
                         Get a Better FixitNest Experience on Mobile. Download the FixitNest app now!
                     </p>
                 </div>
 
-                <div className="flex space-x-4">
+                <div className="flex lg:space-x-4 space-x-1">
                     <a 
                         href="#"
-                        className="bg-black text-white text-lg md:text-xl font-medium py-2 px-4 rounded-md flex items-center space-x-2"
+                        className="bg-black text-white text-[8px] md:text-xl font-medium py-2 px-4 rounded-md flex items-center space-x-2"
                     >
-                        <span className='text-4xl'>
+                        <span className='lg:text-4xl'>
                             <BsApple />
                         </span>
                         <span>
@@ -34,9 +34,9 @@ const Section3 = () => {
                     </a>
                     <a 
                         href="#"
-                        className="bg-black text-white text-lg md:text-xl font-medium py-2 px-4 rounded-md flex items-center space-x-2"
+                        className="bg-black text-white text-[8px] md:text-xl font-medium py-2 px-4 rounded-md flex items-center space-x-2"
                     >
-                        <span className='text-4xl'>
+                        <span className='lg:text-4xl'>
                             <FaGooglePlay />
                         </span>
                         <span>

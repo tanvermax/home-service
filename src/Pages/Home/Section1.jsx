@@ -18,8 +18,8 @@ const Section1 = () => {
   
   return (
     <div className="py-10">
-      <p className={`text-2xl text-center ${day ? "text-white" : "text-black"}`}>___Why Choose Us</p>
-      <h1 className={`text-3xl font-semibold text-center ${day ? "text-white" : "text-black"}`}>
+      <p className={`lg:text-2xl lg:text-center ${day ? "text-white" : "text-black"}`}>___Why Choose Us</p>
+      <h1 className={`lg:text-3xl font-semibold text-center ${day ? "text-white" : "text-black"}`}>
         Because we care about your safety..
       </h1>
 
@@ -28,40 +28,40 @@ const Section1 = () => {
           <span className="text-7xl text-teal-500 ml-2">
             <RiSurgicalMaskLine />
           </span>
-          <p className={`text-2xl font-semibold ${day ? "text-white" : "text-black"}`}>Ensuring <br /> Masks</p>
+          <p className={`lg:text-2xl font-semibold ${day ? "text-white" : "text-black"}`}>Ensuring <br /> Masks</p>
         </div>
         <div data-aos="fade-left" className="flex items-center gap-4">
           <span className="text-7xl text-teal-500 ml-2">
             <MdOutlineSupportAgent />
           </span>
-          <p className={`text-2xl font-semibold ${day ? "text-white" : "text-black"}`}>24/7 <br /> Support</p>
+          <p className={`lg:text-2xl font-semibold ${day ? "text-white" : "text-black"}`}>24/7 <br /> Support</p>
         </div>
         <div data-aos="fade-right" className="flex items-center gap-4">
           <span className="text-7xl text-teal-500 ml-2">
             <MdOutlineWash />
           </span>
-          <p className={`text-2xl font-semibold ${day ? "text-white" : "text-black"}`}>Sanitising Hands & Equipment</p>
+          <p className={`lg:text-2xl font-semibold ${day ? "text-white" : "text-black"}`}>Sanitising Hands & Equipment</p>
         </div>
         <div data-aos="fade-left" className="flex items-center gap-4">
           <span className="text-7xl text-teal-500 ml-2">
             <GiGloves />
           </span>
-          <p className={`text-2xl font-semibold ${day ? "text-white" : "text-black"}`}>Ensuring Gloves</p>
+          <p className={`lg:text-2xl font-semibold ${day ? "text-white" : "text-black"}`}>Ensuring Gloves</p>
         </div>
       </div>
 
-      <div className="text-center mb-10" data-aos="fade-left">
+      <div className="text-center lg:mb-10" data-aos="fade-left">
         <img
-          className="mx-auto h-[300px] md:h-[400px] p-10 object-cover"
+          className="mx-auto h-[300px] md:h-[400px] lg:p-10 object-cover"
           src="https://cdn.pixabay.com/photo/2024/02/09/08/56/construction-8562655_960_720.png"
           alt="Construction"
         />
       </div>
 
       <div className="py-5">
-        <div className="stats shadow w-full">
+        <div className="stats shadow  grid grid-cols-3">
           <div className="stat">
-            <div className="stat-figure text-primary">
+            <div className="stat-figure text-primary hidden lg:block">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -76,9 +76,9 @@ const Section1 = () => {
                 ></path>
               </svg>
             </div>
-            <div className="stat-title">Total Installations</div>
-            <div className="stat-value text-primary">25.6K</div>
-            <div className="stat-desc">21% more than last month</div>
+            <div className="lg:text-2xl text-[6px]">Total Installations</div>
+            <div className="stat-value lg:text-4xl lg:py-2 text-[16px] text-primary">25.6K</div>
+            <div className="stat-desc lg:text-sm  text-[6px]">21% more than last month</div>
           </div>
 
           <div className="stat">
@@ -87,7 +87,7 @@ const Section1 = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                className="inline-block h-8 w-8 stroke-current"
+                className=" h-8 w-8 stroke-current hidden lg:block"
               >
                 <path
                   strokeLinecap="round"
@@ -97,15 +97,15 @@ const Section1 = () => {
                 ></path>
               </svg>
             </div>
-            <div className="stat-title">Website Views</div>
-            <div className="stat-value text-secondary">2.6M</div>
-            <div className="stat-desc">21% more than last month</div>
+            <div className="lg:text-2xl text-[6px]">Website Views</div>
+            <div className="stat-value lg:text-4xl  lg:py-2 text-[16px] text-secondary">2.6M</div>
+            <div className="stat-desc lg:text-sm  text-[6px]">21% more than last month</div>
           </div>
 
-          <div className="stat">
-            <div className="stat-value">86%</div>
-            <div className="stat-title">Orders Done on Delivery Day</div>
-            <div className="stat-desc text-secondary">31 tasks remaining</div>
+          <div className="stat ">
+            <div className="stat-value lg:text-2xl text-[6px]">86%</div>
+            <div className="stat-value lg:text-4xl lg:py-2 text-[8px] overflow-hidden">Orders Done on Delivery Day</div>
+            <div className="stat-desc lg:text-sm  text-[6px] text-secondary">31 tasks remaining</div>
           </div>
         </div>
       </div>
