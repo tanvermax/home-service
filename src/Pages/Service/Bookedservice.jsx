@@ -10,26 +10,13 @@ const Bookedservice = () => {
   console.log(User.email);
 
   useEffect(() => {
-    // axios
-    // .get(`https://serverside-bay.vercel.app/order?email2=${User.email}`, {
-    //   withCredentials: "include",
-    // })
-    // .then((res) => setData(res.data));
+
     axios
       .get(`https://serverside-bay.vercel.app/order?email=${User.email}`, {
         withCredentials: true,
       })
       .then((res) => setData(res.data));
 
-    // fetch(`https://serverside-bay.vercel.app/order?email=${User.email}`,{
-    //   credentials:"include"
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     setData(data)
-
-    //   });
   }, [User.email,setData]);
 
   return (

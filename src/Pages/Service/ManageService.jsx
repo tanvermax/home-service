@@ -12,20 +12,12 @@ const ManageService = () => {
 
   console.log(data);
 
+  
   useEffect(() => {
-    // .get(`https://serverside-bay.vercel.app/order?email2=${User.email}`, {
-      //   withCredentials: "include",
-      // })
-      // .then((res) => setData(res.data));
-
-    axios.get(`https://serverside-bay.vercel.app/addservice?email=${User.email}`,{
+    axios.get(`https://serverside-bay.vercel.app/addservice23?email=${User.email}`,{
       withCredentials :"include"
     })
     .then(res=>setData(res.data) )
-   
-    // fetch(`https://serverside-bay.vercel.app/addservice?email=${User.email}`)
-    //   .then((res) => res.json())
-    //   .then((data) => setData(data));
   }, [User.email]);
 
   const handledelet = (_id) => {
