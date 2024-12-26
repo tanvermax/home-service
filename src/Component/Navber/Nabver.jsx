@@ -65,7 +65,7 @@ const Nabver = () => {
   );
   return (
     <div className={`relative z-10 ${day ? "bg-black" : "bg-white"}`}>
-      <div className="navbar w-11/12 mx-auto">
+      <div className="navbar  lg:w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -94,12 +94,12 @@ const Nabver = () => {
           </div>
           {day ? <img
             data-aos="fade-right"
-            className="h-20"
+            className="lg:h-20 w-20 lg:w-48"
             src="/src/assets/logo5.png"
             alt=""
           /> : <img
           data-aos="fade-right"
-          className="h-20"
+          className="lg:h-20 w-20 lg:w-48"
           src="/src/assets/logo2.png"
           alt=""
         />}
@@ -113,9 +113,9 @@ const Nabver = () => {
           {User ? (
             <>
               
-              <img className="h-14 w-14 rounded-full border-black border-2" src={User.photoURL} alt="" />
-              <p className={`${day ? "text-white" : "text-black"}`}>{User?.displayName ? User.displayName : User.email}</p>
-              <button onClick={logout} className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`}>
+              <img className="lg:h-14 h-6 w-6 lg:w-14 rounded-full border-black border-2" src={User.photoURL} alt="" />
+              <p className={`text-xs ${day ? "text-white" : "text-black"}`}>{User?.displayName ? User.displayName : User.email}</p>
+              <button onClick={logout} className={` ${day ? "nav-link2 bg-black" : " nav-link bg-white"}`}>
                 <span className="relative z-10  ">logout</span>
               </button>
             </>
@@ -135,7 +135,7 @@ const Nabver = () => {
 
             {/* sun icon */}
             <svg
-              className="swap-off h-10 w-10 fill-yellow-500"
+              className="swap-off lg:h-10 h-5 w-5 lg:w-10 fill-yellow-500"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
@@ -143,7 +143,7 @@ const Nabver = () => {
             </svg>
             {/* moon icon */}
             <svg
-              className="swap-on h-10 w-10 fill-white "
+              className="swap-on lg:h-10 h-5 w-5 lg:w-10 fill-white "
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
