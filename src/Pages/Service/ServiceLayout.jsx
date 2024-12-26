@@ -4,7 +4,7 @@ import axios from "axios";
 import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 
 const ServiceLayout = () => {
-  const { User } = useContext(AuthContext);
+  const { User, day } = useContext(AuthContext); // Assuming `day` is part of AuthContext
 
   const [data, setData] = useState([]);
 
@@ -12,15 +12,11 @@ const ServiceLayout = () => {
     axios
       .get(`https://serverside-bay.vercel.app/order?email2=${User.email}`, {
         headers: {
-          Authorization : `Barer ${localStorage.getItem('token')}`
+          Authorization: `Barer ${localStorage.getItem("token")}`,
         },
         withCredentials: "include",
       })
       .then((res) => setData(res.data));
-
-    // fetch(`https://serverside-bay.vercel.app/order?email2=${User.email}`)
-    //   .then((res) => res.json())
-    //   .then((card) => setData(card));
   }, [User.email]);
 
   const handleStatusChange = (e, id) => {
@@ -28,8 +24,6 @@ const ServiceLayout = () => {
 
     const form = e.target;
     const serviceStatus = form.serviceStatus.value;
-
-    console.log(`Updating service ID: ${id} with status: ${serviceStatus}`);
 
     fetch(`https://serverside-bay.vercel.app/order/${id}`, {
       method: "PUT",
@@ -40,9 +34,6 @@ const ServiceLayout = () => {
     })
       .then((res) => res.json())
       .then((updatedService) => {
-        console.log("Updated service:", updatedService);
-
-        // Update the state with the new service status
         setData((prevData) =>
           prevData.map((service) =>
             service._id === id
@@ -55,14 +46,29 @@ const ServiceLayout = () => {
   };
 
   return (
-    <div className="w-9/12 mx-auto">
+    <div
+      className={`w-11/12 mx-auto ${
+        day ? "bg-gray-800 text-white" : "bg-white text-gray-800"
+      }`}
+    >
       <Helmet>
-        <title>To Do service</title>
+        <title>To Do Service</title>
       </Helmet>
-      <h1>You have total {data.length} order</h1>
-      <div className="grid grid-cols-3 gap-5 p-4">
+      <h1
+        className={`text-2xl font-semibold py-4 ${
+          day ? "text-white" : "text-gray-800"
+        }`}
+      >
+        You have total {data.length} orders
+      </h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-4">
         {data.map((card) => (
-          <div key={card._id} className="border-[1px] border-teal-600 p-1">
+          <div
+            key={card._id}
+            className={`border-[1px] ${
+              day ? "border-teal-400" : "border-teal-600"
+            } p-4 rounded-xl`}
+          >
             <form
               onSubmit={(e) => {
                 handleStatusChange(e, card._id);
@@ -74,7 +80,9 @@ const ServiceLayout = () => {
                 </label>
                 <input
                   type="text"
-                  className="input"
+                  className={`input ${
+                    day ? "bg-gray-700 text-gray-800" : "bg-gray-100 text-gray-800"
+                  }`}
                   name="orderid"
                   defaultValue={card._id}
                   readOnly
@@ -87,36 +95,53 @@ const ServiceLayout = () => {
                 <input
                   type="text"
                   name="serviceName"
-                  className="input"
+                  className={`input ${
+                    day ? "bg-gray-700 text-gray-800" : "bg-gray-100 text-gray-800"
+                  }`}
                   defaultValue={card.servicename}
                   readOnly
                 />
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Order given by</span>
+                  <span className="label-text">Order Given By</span>
                 </label>
                 <input
                   type="text"
                   name="ordergivenuseremail"
-                  className="input"
+                  className={`input ${
+                    day ? "bg-gray-700 text-gray-800" : "bg-gray-100 text-gray-800"
+                  }`}
                   defaultValue={card.ordergivenuseremail}
                   readOnly
                 />
               </div>
               <div className="form-control">
-                <label className="label border-2 p-5">
+                <label className="label">
                   <span className="label-text">Service Status</span>
                 </label>
-                <select className="p-5" name="serviceStatus" defaultValue={card.serviceStatus}>
-                  <option className="p-5" value="pending">Pending</option>
+                <select
+                  className={`p-2 ${
+                    day ? "bg-gray-700 text-white" : "bg-white text-gray-800"
+                  }`}
+                  name="serviceStatus"
+                  defaultValue={card.serviceStatus}
+                >
+                  <option value="pending">Pending</option>
                   <option value="working">Working</option>
                   <option value="complete">Complete</option>
                 </select>
               </div>
-              <div className="py-5">
-              <input type="submit" className="border-[1px]  p-3 border-black hover:bg-black hover:text-white" value="Update Status" />
-
+              <div className="py-4">
+                <input
+                  type="submit"
+                  className={`border-[1px] p-3 rounded-md ${
+                    day
+                      ? "bg-teal-400 text-black hover:bg-teal-500"
+                      : "bg-teal-600 text-white hover:bg-teal-700"
+                  }`}
+                  value="Update Status"
+                />
               </div>
             </form>
           </div>

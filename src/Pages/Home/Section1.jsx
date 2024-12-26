@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { RiSurgicalMaskLine } from "react-icons/ri";
 import { MdOutlineWash } from "react-icons/md";
 import { GiGloves } from "react-icons/gi";
 import 'aos/dist/aos.css';
 import { MdOutlineSupportAgent } from "react-icons/md";
 import Aos from "aos";
+import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 
 const Section1 = () => {
+  const {day} = useContext(AuthContext);
   useEffect(() => {
     Aos.init({
       duration: 3000,
@@ -15,8 +17,8 @@ const Section1 = () => {
   }, []);
   return (
     <div className="py-10 ">
-      <p className="text-xl">___Why Choose US</p>
-      <h1 className="text-3xl font-semibold">
+      <p className={`text-2xl ${day ? "text-white" : "text-black"}`}>___Why Choose US</p>
+      <h1 className={`text-3xl font-semibold ${day ? "text-white" : "text-black"}`}>
         Because we care about your safety..
       </h1>
       <div className="grid grid-cols-2 py-2 w-9/12 mx-auto">
@@ -25,28 +27,28 @@ const Section1 = () => {
             <span className="text-7xl text-teal-500  ml-2">
               <RiSurgicalMaskLine />
             </span>
-            <p className="text-2xl font-semibold">Ensuring <br /> Masks</p>
+            <p className={`text-2xl font-semibold ${day ? "text-white" : "text-black"}`}>Ensuring <br /> Masks</p>
           </div>
           <div data-aos="fade-left" className="flex items-center gap-4">
             <span className="text-7xl text-teal-500 ml-2">
               <MdOutlineSupportAgent />
             </span>
 
-            <p className="text-2xl font-semibold">24/7 <br /> Support</p>
+            <p className={`text-2xl font-semibold ${day ? "text-white" : "text-black"}`}>24/7 <br /> Support</p>
           </div>
           <div data-aos="fade-right" className="flex items-center gap-4">
             <span className="text-7xl text-teal-500 ml-2">
               <MdOutlineWash />
             </span>
 
-            <p className="text-2xl font-semibold">Sanitising Hands & Equipment</p>
+            <p className={`text-2xl font-semibold ${day ? "text-white" : "text-black"}`}>Sanitising Hands & Equipment</p>
           </div>
           <div data-aos="fade-left" className="flex items-center gap-4">
             <span className="text-7xl text-teal-500 ml-2">
               <GiGloves />
             </span>
 
-            <p className="text-2xl font-semibold">Ensuring Gloves</p>
+            <p className={`text-2xl font-semibold ${day ? "text-white" : "text-black"}`}>Ensuring Gloves</p>
           </div>
         </div>
         <div data-aos="fade-left">

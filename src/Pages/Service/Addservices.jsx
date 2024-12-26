@@ -4,11 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 
-
 const Addservices = () => {
-  const { User } = useContext(AuthContext);
-  console.log("Logged in User:", User);
+  const { User, day } = useContext(AuthContext);
   const navigate = useNavigate();
+
   const handleAddService = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -32,9 +31,6 @@ const Addservices = () => {
       providername,
     };
 
-    console.log("New Service:", newService);
-
-    // Example: Sending data to the backend
     fetch("https://serverside-bay.vercel.app/addservice", {
       method: "POST",
       headers: {
@@ -48,85 +44,77 @@ const Addservices = () => {
           navigate("/allservices");
           alert("Service added successfully!");
           form.reset();
-          
         }
       })
       .catch((err) => console.error("Error adding service:", err));
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className={`flex items-center justify-center min-h-screen ${day ? "bg-black" : "bg-white"}`}>
       <Helmet>
         <title>ADD Service Sharing</title>
       </Helmet>
-      <div className="w-full max-w-lg bg-white p-8 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
+      <div className={`w-full max-w-lg p-8 rounded-lg shadow-lg ${day ? "bg-gray-800 text-white" : "bg-white text-gray-800"}`}>
+        <h2 className={`text-2xl font-bold text-center mb-6`}>
           Add Service
         </h2>
         <form onSubmit={handleAddService} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Image URL
-            </label>
+            <label className="block text-sm font-medium">Image URL</label>
             <input
               type="text"
               name="imageUrl"
-              className="input border-[1px] border-black rounded-none w-full"
+              className={`input border-[1px] rounded-none w-full ${day ? "border-gray-600 bg-gray-700 text-white" : "border-black bg-white text-gray-800"}`}
               placeholder="Enter image URL"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Service Name
-            </label>
+            <label className="block text-sm font-medium">Service Name</label>
             <input
               type="text"
               name="serviceName"
-              className="input border-[1px] border-black rounded-none w-full"
+              className={`input border-[1px] rounded-none w-full ${day ? "border-gray-600 bg-gray-700 text-white" : "border-black bg-white text-gray-800"}`}
               placeholder="Enter service name"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Price
-            </label>
+            <label className="block text-sm font-medium">Price</label>
             <input
               type="number"
               name="price"
-              className="input border-[1px] border-black rounded-none w-full"
+              className={`input border-[1px] rounded-none w-full ${day ? "border-gray-600 bg-gray-700 text-white" : "border-black bg-white text-gray-800"}`}
               placeholder="Enter price"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Service Area
-            </label>
+            <label className="block text-sm font-medium">Service Area</label>
             <input
               type="text"
               name="serviceArea"
-              className="input border-[1px] border-black rounded-none w-full"
+              className={`input border-[1px] rounded-none w-full ${day ? "border-gray-600 bg-gray-700 text-white" : "border-black bg-white text-gray-800"}`}
               placeholder="Enter service area"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Description
-            </label>
+            <label className="block text-sm font-medium">Description</label>
             <textarea
               name="description"
-              className="input border-[1px] border-black rounded-none w-full"
+              className={`input border-[1px] rounded-none w-full ${day ? "border-gray-600 bg-gray-700 text-white" : "border-black bg-white text-gray-800"}`}
               placeholder="Enter service description"
               rows="4"
               required
             ></textarea>
           </div>
           <div className="text-center">
-            <button type="submit" className="nav_link    ">
-              <span className="relative z-10  "> Add Service</span>
+            <button
+              type="submit"
+              className={`nav_link ${day ? "bg-blue-500 text-white" : "bg-blue-700 text-white"} font-semibold py-2 px-4 rounded`}
+            >
+              <span className="relative z-10">Add Service</span>
             </button>
           </div>
         </form>

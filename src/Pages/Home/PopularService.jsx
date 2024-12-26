@@ -58,7 +58,7 @@ const PopularService = () => {
                 </div>
               </div>
               <Link data-aos="fade-right" to={`/addservice/${card._id}`}>
-                <button className="navlink">
+                <button className={`${day ? "navlink2": "navlink"}`}>
                   <span className="relative z-10">View Detail</span>
                 </button>
               </Link>

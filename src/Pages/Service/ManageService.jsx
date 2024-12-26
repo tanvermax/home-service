@@ -6,21 +6,18 @@ import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 import axios from "axios";
 
 const ManageService = () => {
-  const { User } = useContext(AuthContext);
-
+  const { User, day } = useContext(AuthContext);
   const [data, setData] = useState([]);
 
-  console.log(data);
-
-  
   useEffect(() => {
-    axios.get(`https://serverside-bay.vercel.app/addservice23?email=${User.email}`,{
-      withCredentials :"include"
-    })
-    .then(res=>setData(res.data) )
+    axios
+      .get(`https://serverside-bay.vercel.app/addservice23?email=${User.email}`, {
+        withCredentials: "include",
+      })
+      .then((res) => setData(res.data));
   }, [User.email]);
 
-  const handledelet = (_id) => {
+  const handleDelet = (_id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -36,17 +33,11 @@ const ManageService = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount) {
               setData((prevData) =>
                 prevData.filter((item) => item._id !== _id)
               );
-              // Remove the deleted item from the state
-              Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
-                icon: "success",
-              });
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
           });
       }
@@ -54,173 +45,92 @@ const ManageService = () => {
   };
 
   return (
-    <div className="w-11/12 mx-auto py-10">
+    <div
+      className={`min-h-screen w-full py-10 px-4 ${
+        day ? "bg-gray-900 text-white" : "bg-white text-gray-900"
+      }`}
+    >
       <Helmet>
         <title>Manage Service</title>
       </Helmet>
 
-      <div className="grid grid-cols-3 gap-10">
+      <h1 className="text-2xl font-bold text-center mb-10">
+        Manage Your Services
+      </h1>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {data.length === 0 ? (
-          <div key={data._id} className="relative text-center top-[200px] left-[550px]  text-gray-600">
-            <h2 className="text-xl font-semibold">No bookings found!</h2>
-            <p className="text-base">You haven't booked any services yet.</p>
-            <p>
-              <a href="/addService" className="text-blue-500 underline">
-                Browse services
-              </a>{" "}
-              to make your first booking.
+          <div
+            className={`col-span-1 sm:col-span-2 lg:col-span-3 text-center py-10 ${
+              day ? "text-white" : "text-gray-600"
+            }`}
+          >
+            <h2 className="text-lg font-semibold">No services found!</h2>
+            <p className="text-base">
+              You haven't added any services yet.
+              <br />
+              <Link to="/addService" className="text-blue-500 underline">
+                Add a service
+              </Link>{" "}
+              to get started.
             </p>
           </div>
         ) : (
           data.map((loadData) => (
-            <div key={loadData._id} className="loadData   shadow-xl">
+            <div
+              key={loadData._id}
+              className={`shadow-lg rounded-lg overflow-hidden transition-all transform hover:scale-105 ${
+                day ? "bg-gray-800" : "bg-gray-100"
+              }`}
+            >
               <figure>
                 <img
-                  className="h-96 w-full"
+                  className="h-56 w-full object-cover"
                   src={loadData.imageUrl}
-                  alt="Shoes"
+                  alt={loadData.serviceName}
                 />
               </figure>
-              <div className="loadData-body">
-                <div className="flex justify-between items-center">
-                  <div className="py-5 px-3">
-                    <h2 className="loadData-title text-3xl font-semibold">
-                      {loadData.serviceName}
-                    </h2>
-                    <p className="h-24 text-gray-600 overflow-hidden py-3 text-base">
-                      {loadData.description} in serviceArea :{" "}
-                      <span className="badge badge-secondary font-semibold">
-                        {loadData.serviceArea}
-                      </span>{" "}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-xl  px-3 font-semibold">
-                      {loadData.price}$
-                    </p>
-                  </div>
-                </div>
-                <div className=" flex justify-between p-5 items-center">
-                  <div className="badge badge-outline">
+              <div className="p-4">
+                <h2 className="text-xl font-semibold mb-2">
+                  {loadData.serviceName}
+                </h2>
+                <p className="text-sm mb-2">
+                  {loadData.description}
+                  <br />
+                  <span className="badge badge-secondary">
+                    {loadData.serviceArea}
+                  </span>
+                </p>
+                <p className="text-lg font-bold mb-2">${loadData.price}</p>
+                <div className="flex items-center justify-between">
+                  <span className="badge badge-outline">
                     {loadData.providername}
-                  </div>
-                  <div className=" border-warning rounded-full border-2">
-                    <img
-                      className="h-14 w-14 rounded-full"
-                      src={loadData.providerphoto}
-                      alt=""
-                    />
-                  </div>
+                  </span>
+                  <img
+                    className="h-12 w-12 rounded-full border"
+                    src={loadData.providerphoto}
+                    alt={loadData.providername}
+                  />
                 </div>
               </div>
-              <div className="flex justify-between p-2">
+              <div
+                className={`flex justify-between p-4 ${
+                  day ? "bg-gray-900" : "bg-gray-200"
+                }`}
+              >
                 <Link
                   to={`/addservice2/${loadData._id}`}
-                  className="nav_link font-semibold "
+                  className="text-sm font-semibold hover:text-blue-500"
                 >
-                  <span className="relative z-10">Edit</span>
+                  Edit
                 </Link>
                 <button
-                  onClick={() => handledelet(loadData._id)}
-                  // onClick={() => handledelet(loadData._id)}
-                  className="nav_link font-semibold "
+                  onClick={() => handleDelet(loadData._id)}
+                  className="text-sm font-semibold hover:text-red-500"
                 >
-                  <span className="relative z-10">Delet</span>
+                  Delete
                 </button>
               </div>
-              {/* You can open the modal using document.getElementById('ID').showModal() method */}
-              {/* The button to open modal */}
-              {/* You can open the modal using document.getElementById('ID').showModal() method */}
-
-              {/* ....................... */}
-              <dialog id="my_modal_3" className="modal">
-                <div className="modal-box">
-                  <form method="dialog">
-                    {/* if there is a button in form, it will close the modal */}
-                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                      ✕
-                    </button>
-                  </form>
-                  <form>
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text">ServiceId</span>
-                      </label>
-                      <input
-                        type="text"
-                        className="input amarform"
-                        name="orderid"
-                        defaultValue={loadData._id}
-                        readOnly
-                      />
-                    </div>
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text">Service Name</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="servicename"
-                        className="input amarform  "
-                        defaultValue={loadData.serviceName}
-                      />
-                    </div>
-                    <input
-                      type="hidden"
-                      name="serviceStatus"
-                      value="Pending" // Default value
-                    />
-
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text">Service Area</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="serviceprovider"
-                        className="input amarform"
-                        defaultValue={loadData.serviceArea}
-                      />
-                    </div>
-
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text">Service image</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="serviceprovideremail"
-                        className="input amarform"
-                        defaultValue={loadData.imageUrl}
-                      />
-                    </div>
-
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text">Service dicription</span>
-                      </label>
-                      <input
-                        type="url"
-                        className="input amarform"
-                        defaultValue={loadData.description}
-                        readOnly
-                      />
-                    </div>
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text">Service Cost $</span>
-                      </label>
-                      <input
-                        type="text"
-                        name="cost"
-                        className="input amarform"
-                        defaultValue={loadData.price}
-                      />
-                    </div>
-                    <input type="submit" className="btn" value="Submite" />
-                  </form>
-                </div>
-              </dialog>
             </div>
           ))
         )}

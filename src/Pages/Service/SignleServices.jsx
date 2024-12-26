@@ -3,13 +3,11 @@ import { useLoaderData } from "react-router-dom";
 import "./addservic.css";
 import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 
-
 const SignleServices = () => {
-  const { User } = useContext(AuthContext);
+  const { User, day } = useContext(AuthContext);
 
   const loadData = useLoaderData();
   console.log(loadData);
-  
 
   const handleservice = (e) => {
     e.preventDefault();
@@ -19,30 +17,42 @@ const SignleServices = () => {
     const instruction = form.instruction.value;
     const serviceprovider = form.serviceprovider.value;
     const serviceprovideremail = form.serviceprovideremail.value;
-    
+
     const cost = form.cost.value;
     const serviceStatus = form.serviceStatus.value;
     const ordergivenusername = User.displayName;
     const ordergivenuseremail = User.email;
     const serviceDate = form.serviceDate.value;
-    const servicedetails = {ordergivenuseremail,serviceprovideremail,serviceStatus,serviceDate,cost,ordergivenusername, orderid,serviceDate,servicename,instruction,serviceprovider};
-    
+    const servicedetails = {
+      ordergivenuseremail,
+      serviceprovideremail,
+      serviceStatus,
+      serviceDate,
+      cost,
+      ordergivenusername,
+      orderid,
+      serviceDate,
+      servicename,
+      instruction,
+      serviceprovider,
+    };
+
     console.log(servicedetails);
     document.getElementById("my_modal_5").close();
-    fetch('https://serverside-bay.vercel.app/order',{
-        method: "POST",
-        headers:{
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(servicedetails),
+    fetch("https://serverside-bay.vercel.app/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(servicedetails),
     })
-    .then(res=>res.json())
-    .then(data=>{
-        console.log("inside data",data);
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("inside data", data);
         if (data.insertedId) {
-            alert("data created")
+          alert("data created");
         }
-    })
+      });
   };
 
   return (
@@ -54,10 +64,18 @@ const SignleServices = () => {
         <div className="loadData-body">
           <div className="flex justify-between items-center">
             <div className="py-5 px-3">
-              <h2 className="loadData-title text-3xl font-semibold">
+              <h2
+                className={`loadData-title text-3xl font-semibold ${
+                  day ? "text-white" : "text-black"
+                }`}
+              >
                 {loadData.serviceName}
               </h2>
-              <p className="h-24 text-gray-600 overflow-hidden py-3 text-xl">
+              <p
+                className={`h-24 text-gray-600 overflow-hidden py-3 text-xl ${
+                  day ? "text-white" : "text-black"
+                } `}
+              >
                 {loadData.description} in serviceArea :{" "}
                 <span className="badge badge-secondary font-semibold">
                   {loadData.serviceArea}
@@ -69,7 +87,13 @@ const SignleServices = () => {
             </div>
           </div>
           <div className=" flex justify-between p-5">
-            <div className="badge badge-outline">{loadData.providername}</div>
+            <div
+              className={`badge p-5 badge-outline ${
+                day ? "text-white" : "text-black"
+              }`}
+            >
+              {loadData.providername}
+            </div>
             <div className=" border-warning rounded-full border-2">
               <img
                 className="h-14 w-14 rounded-full"
@@ -83,7 +107,7 @@ const SignleServices = () => {
 
       <div className="py-5">
         <button
-          className="nav_link font-semibold "
+          className={`font-semibold ${day ? "nav_link2" : "nav_link"}`}
           onClick={() => document.getElementById("my_modal_5").showModal()}
         >
           <span className="relative z-10">Book Now</span>
@@ -120,10 +144,10 @@ const SignleServices = () => {
                 />
               </div>
               <input
-              type="hidden"
-              name="serviceStatus"
-              value="Pending" // Default value
-            />
+                type="hidden"
+                name="serviceStatus"
+                value="Pending" // Default value
+              />
 
               <div className="form-control">
                 <label className="label">
@@ -178,8 +202,11 @@ const SignleServices = () => {
                 <label className="label">
                   <span className="label-text">Service Taking Date</span>
                 </label>
-                <input type="date" 
-                name="serviceDate" className="input amarform" />
+                <input
+                  type="date"
+                  name="serviceDate"
+                  className="input amarform"
+                />
               </div>
               <div className="form-control">
                 <label className="label">
@@ -208,18 +235,15 @@ const SignleServices = () => {
               {/* if there is a button in form, it will close the modal */}
               <div className="flex justify-between gap-5 py-5">
                 <button
-                  className="nav_link font-semibold "
-                  onClick={() =>
-                    document.getElementById("my_modal_5").showModal()
-                  }
+                  type="button" // Prevents form submission
+                  className="nav_link font-semibold"
+                  onClick={() => document.getElementById("my_modal_5").close()}
                 >
                   <span className="relative z-10">Close</span>
                 </button>
                 <button
-                  className="nav_link font-semibold "
-                  onClick={() =>
-                    document.getElementById("my_modal_5").showModal()
-                  }
+                  type="submit" // Ensures this button submits the form
+                  className="nav_link font-semibold"
                 >
                   <span className="relative z-10">Purchase</span>
                 </button>
