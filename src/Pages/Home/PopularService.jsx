@@ -25,7 +25,7 @@ const PopularService = () => {
   console.log(data);
 
   return (
-    <div className={`lg:py-10 py-2 ${day ? "bg-black" : "bg-white"}`}>
+    <div className={`lg:py-10 p-5 ${day ? "bg-black" : "bg-white"}`}>
       <div className="w-11/12 mx-auto text-center mb-10">
         <h2
           className={`lg:text-3xl md:text-4xl font-bold ${

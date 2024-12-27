@@ -27,11 +27,11 @@ const Register = () => {
     const password = form.password.value;
     const photoURL = form.photourl.value;
     const user = { name, email, password, photoURL };
-    console.log(user);
+    // console.log(user);
     registerwihtgmail(email, password)
       .then((result) => {
         setUser(result.user);
-        console.log(result.user.email);
+        // console.log(result.user.email);
         updateUser({ displayName: name, photoURL: photoURL });
         fetch("https://serverside-bay.vercel.app/user", {
           method: "POST",
@@ -42,7 +42,7 @@ const Register = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log("inside the body", data);
+            ("inside the body", data);
             if (data.insertedId) {
               alert("Account created");
               navigate("/");

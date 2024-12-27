@@ -6,7 +6,7 @@ import axios from "axios";
 const Bookedservice = () => {
   const { User, day } = useContext(AuthContext); // Adding day context for day/night mode
   const [data, setData] = useState([]);
-  console.log(User.email);
+  (User.email);
 
   useEffect(() => {
     axios

@@ -6,7 +6,7 @@ const Section2 = () => {
   const { day } = useContext(AuthContext);
   
   return (
-    <div className="py-10">
+    <div className="py-10 container">
       <p className={`lg:text-xl lg:text-center ml-2 ${day ? "text-white" : "text-gray-500"}`}>---How it works</p>
       
       <h1 className={`lg:text-3xl font-semibold lg:text-center ml-2 mb-6 ${day ? "text-white" : "text-gray-500"}`}>
@@ -15,11 +15,11 @@ const Section2 = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 w-10/12 mx-auto py-5 gap-8">
         <div className="relative">
-          <span className="hover:text-green-900 absolute lg:top-[-40px] top-36 left-1/2 transform -translate-x-1/2 text-5xl text-red-700">
+          <span className="hover:text-green-900 absolute lg:top-1/2 top-36 left-1/2 transform -translate-x-1/2 text-5xl text-red-700">
             <ImPlay2 />
           </span>
           <img
-            className="border-2 w-full h-[400px] object-cover hover:border-teal-800"
+            className="border-2 w-full  h-[400px] object-cover hover:border-teal-800"
             src="https://cdn.pixabay.com/photo/2024/02/09/08/56/construction-8562655_960_720.png"
             alt="How it works"
           />
