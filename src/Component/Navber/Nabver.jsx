@@ -25,10 +25,13 @@ const Nabver = () => {
   const navber = (
     <>
       <NavLink className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`}  to={"/"}>
-        <span className="relative z-20  ">Home</span>
+        <span className="relative z-20  ">HOME</span>
       </NavLink>
       <NavLink className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`} to={"/allservices"}>
-        <span className="relative z-10  ">ALL Service</span>
+        <span className="relative z-10  ">ALL SERVICE</span>
+      </NavLink>
+      <NavLink className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`} to={"/allservices"}>
+        <span className="relative z-10  ">ABOUT US</span>
       </NavLink>
 
       {User ? (
@@ -38,10 +41,11 @@ const Nabver = () => {
             <div tabIndex={0} role="button" className=" m-1">
               <div className={ `bottom-1 ${day ? "nav-link2 bg-black" : " nav-link bg-white"}`}>
                 <button>
-                  <span className="relative z-10  ">Dashbord</span>
+                  <span className="relative z-10  ">DASHBOARD</span>
                 </button>
               </div>
             </div>
+            
             <ul
               tabIndex={0}
               className="  dropdown-content menu gap-3  rounded-box z-[1] w-52 p-2 shadow"
@@ -60,6 +64,9 @@ const Nabver = () => {
               </NavLink>
             </ul>
           </div>
+          <NavLink className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`} to={"/allservices"}>
+        <span className="relative z-10  ">PROFILE</span>
+      </NavLink>
         </>
       ) : (
         ""
