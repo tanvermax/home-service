@@ -7,7 +7,7 @@ const SignleServices = () => {
   const { User, day } = useContext(AuthContext);
 
   const loadData = useLoaderData();
-  console.log(loadData);
+  // console.log(loadData);
 
   const handleservice = (e) => {
     e.preventDefault();
@@ -37,7 +37,7 @@ const SignleServices = () => {
       serviceprovider,
     };
 
-    console.log(servicedetails);
+    // console.log(servicedetails);
     document.getElementById("my_modal_5").close();
     fetch("https://serverside-bay.vercel.app/order", {
       method: "POST",

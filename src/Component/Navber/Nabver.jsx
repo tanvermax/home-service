@@ -17,6 +17,11 @@ const Nabver = () => {
       once: true, // Whether animation should happen only once - while scrolling down
     });
   }, []);
+  
+  useEffect(() => {
+    Aos.refresh();
+  }, [day]);
+
   const navber = (
     <>
       <NavLink className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`}  to={"/"}>
@@ -66,7 +71,7 @@ const Nabver = () => {
     </>
   );
   return (
-    <div className={`relative z-10 ${day ? "bg-black" : "bg-white"}`}>
+    <div className={` sticky top-0 z-10 ${day ? "bg-black" : "bg-white"}`}>
       <div className="navbar  lg:w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -132,6 +137,7 @@ const Nabver = () => {
               type="checkbox"
               onClick={togglebutton}
               className="theme-controller"
+              checked={day}
               value="synthwave"
             />
 

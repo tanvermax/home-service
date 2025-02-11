@@ -22,7 +22,7 @@ const PopularService = () => {
     });
   }, []);
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className={`lg:py-10 p-5 ${day ? "bg-black" : "bg-white"}`}>

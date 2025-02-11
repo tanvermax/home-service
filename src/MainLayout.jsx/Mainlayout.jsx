@@ -12,7 +12,7 @@ const Mainlayout = () => {
    
      <Nabver></Nabver>
  
-      <div className=" min-h-[calc(100vh-300px)] ">
+      <div className=" min-h-[calc(100vh-300px)] scroll-x- ">
       <Outlet></Outlet>
       </div>
       <Fotter></Fotter>

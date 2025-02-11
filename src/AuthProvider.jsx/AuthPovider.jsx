@@ -10,7 +10,6 @@ import {
   updateProfile,
 } from "firebase/auth";
 import axios from "axios";
-import { data } from "react-router-dom";
 import AuthContext from "./AuhtContext";
 const gooogleprovider = new GoogleAuthProvider();
 

@@ -31,7 +31,7 @@ const Editservice = () => {
         serviceArea,
         description,provideremail,providerphoto,providername
       };
-    console.log(newService);
+    // console.log(newService);
     
     fetch(`https://serverside-bay.vercel.app/addservice2/${loadData._id}`,{
         method : "PUT",
