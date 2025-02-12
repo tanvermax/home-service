@@ -26,7 +26,8 @@
     "react-slick": "^0.30.3",
     "slick-carousel": "^1.8.1",
     "sort-by": "^1.2.0",
-    "sweetalert2": "^11.15.3"
+    "sweetalert2": "^11.15.3",
+    "swiper": "^11.2.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

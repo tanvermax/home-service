@@ -4,6 +4,7 @@ import Mainlayout from "../src/MainLayout.jsx/Mainlayout";
 import Login from "../src/Pages/Auth/Login";
 import Register from "../src/Pages/Auth/Register";
 import Home from "../src/Pages/Home/Home";
+import Aboutus from "../src/Pages/Home/Aboutus";
 import AllService from "../src/Pages/Service/AllService";
 import ServiceLayout from "../src/Pages/Service/ServiceLayout";
 import Addservices from "../src/Pages/Service/Addservices";
@@ -28,6 +29,11 @@ const Routs = createBrowserRouter([
       {
         path: "login",
         element: <Login></Login>,
+        errorElement: <Errorpage></Errorpage>,
+      },
+      {
+        path: "aboutus",
+        element: <Aboutus></Aboutus>,
         errorElement: <Errorpage></Errorpage>,
       },
       {

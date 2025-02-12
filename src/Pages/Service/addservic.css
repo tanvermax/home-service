@@ -22,13 +22,12 @@
             hover:before:-rotate-180;
 }
 
-.amarform{
- border: 5;
- border-color: black;
- border-radius: 0px;
- 
+.amarform {
+  border: 5;
+  border-color: black;
+  border-radius: 0px;
 }
-.amarform::placeholder{
+.amarform::placeholder {
   color: black;
 }
 

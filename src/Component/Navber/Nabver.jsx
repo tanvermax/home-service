@@ -30,7 +30,7 @@ const Nabver = () => {
       <NavLink className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`} to={"/allservices"}>
         <span className="relative z-10  ">ALL SERVICE</span>
       </NavLink>
-      <NavLink className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`} to={"/allservices"}>
+      <NavLink className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`} to={"/aboutus"}>
         <span className="relative z-10  ">ABOUT US</span>
       </NavLink>
 
@@ -78,7 +78,7 @@ const Nabver = () => {
     </>
   );
   return (
-    <div className={` sticky top-0 z-10 ${day ? "bg-black" : "bg-white"}`}>
+    <div className={` sticky  top-0 z-20 ${day ? "bg-black" : "bg-white"}`}>
       <div className="navbar  lg:w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -142,7 +142,7 @@ const Nabver = () => {
             {/* this hidden checkbox controls the state */}
             <input
               type="checkbox"
-              onClick={togglebutton}
+              onChange={togglebutton}
               className="theme-controller"
               checked={day}
               value="synthwave"

@@ -92,7 +92,7 @@ const AllService = () => {
                 <div className="card-actions  items-center   justify-between">
                   <div className={`${day ? "nav_link2" : "nav_link"}`}>
                     prov :{" "}
-                    <span className="relative z-10 hover:mr-10 hover:font-bold ">
+                    <span className="relative z-10 hover:mr-10 font-bold ">
                       {card.providername}
                     </span>
                   </div>
