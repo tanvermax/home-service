@@ -39,7 +39,7 @@ const SignleServices = () => {
 
     // console.log(servicedetails);
     document.getElementById("my_modal_5").close();
-    fetch("http://localhost:5000/order", {
+    fetch("https://serverside-bay.vercel.app/order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

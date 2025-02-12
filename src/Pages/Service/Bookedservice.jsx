@@ -10,7 +10,7 @@ const Bookedservice = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/order?email=${User.email}`, {
+      .get(`https://serverside-bay.vercel.app/order?email=${User.email}`, {
         withCredentials: true,
       })
       .then((res) => setData(res.data));

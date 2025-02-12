@@ -46,7 +46,7 @@ const Routs = createBrowserRouter([
         element: <AllService></AllService>,
         errorElement: <Errorpage></Errorpage>,
 
-        loader: () => fetch("http://localhost:5000/addservice"),
+        loader: () => fetch("https://serverside-bay.vercel.app/addservice"),
       },
       {
         path: "servicetodo",
@@ -96,7 +96,7 @@ const Routs = createBrowserRouter([
         errorElement: <Errorpage></Errorpage>,
 
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/addservice/${params.id}`),
+          fetch(`https://serverside-bay.vercel.app/addservice/${params.id}`),
       },
       {
         path: "addservice2/:id",
@@ -106,7 +106,7 @@ const Routs = createBrowserRouter([
           </PrivetRouts>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/addservice2/${params.id}`),
+          fetch(`https://serverside-bay.vercel.app/addservice2/${params.id}`),
         errorElement: <Errorpage></Errorpage>,
       },
     ],
