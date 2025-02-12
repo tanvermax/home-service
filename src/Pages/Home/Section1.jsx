@@ -17,7 +17,7 @@ const Section1 = () => {
   }, []);
   
   return (
-    <div className="py-10 ">
+    <div className="py-10 px-5">
       <p className={`lg:text-2xl lg:text-center py-5 ${day ? "text-white" : "text-black"}`}>___Why Choose Us</p>
       <h1 className={`lg:text-3xl font-semibold px-5 lg:text-center ${day ? "text-white" : "text-black"}`}>
         Because we care about your safety..
@@ -58,9 +58,9 @@ const Section1 = () => {
         />
       </div>
 
-      <div className="py-5">
-        <div className="stats shadow  grid grid-cols-3">
-          <div className="stat">
+      <div className="p-5"> 
+        <div className="stats shadow flex flex-col md:grid  grid-cols-3  md:grid-cols-3 ">
+          <div className="stat text-center">
             <div className="stat-figure text-primary hidden lg:block">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -76,12 +76,12 @@ const Section1 = () => {
                 ></path>
               </svg>
             </div>
-            <div className="lg:text-2xl text-[6px]">Total Installations</div>
+            <div className="lg:text-2xl md:text-[12px] text-[8px]">Total Installations</div>
             <div className="stat-value lg:text-4xl lg:py-2 text-[16px] text-primary">25.6K</div>
-            <div className="stat-desc lg:text-sm  text-[6px]">21% more than last month</div>
+            <div className="stat-desc lg:text-2xl md:text-[12px] text-[8px]">21% more than last month</div>
           </div>
 
-          <div className="stat">
+          <div className="stat text-center">
             <div className="stat-figure text-secondary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -97,15 +97,15 @@ const Section1 = () => {
                 ></path>
               </svg>
             </div>
-            <div className="lg:text-2xl text-[6px]">Website Views</div>
+            <div className=" lg:text-2xl md:text-[12px] text-[8px]">Website Views</div>
             <div className="stat-value lg:text-4xl  lg:py-2 text-[16px] text-secondary">2.6M</div>
-            <div className="stat-desc lg:text-sm  text-[6px]">21% more than last month</div>
+            <div className="stat-desc lg:text-2xl md:text-[12px] text-[8px]">21% more than last month</div>
           </div>
 
-          <div className="stat ">
-            <div className="stat-value lg:text-2xl text-[6px]">86%</div>
-            <div className="stat-value lg:text-4xl lg:py-2 text-[8px] overflow-hidden">Orders Done on Delivery Day</div>
-            <div className="stat-desc lg:text-sm  text-[6px] text-secondary">31 tasks remaining</div>
+          <div className="stat text-center">
+            <div className="stat-value lg:text-2xl md:text-[12px] text-[8px]">86%</div>
+            <div className="stat-value lg:text-3xl lg:py-2 text-[8px] overflow-hidden">Orders Done on Delivery Day</div>
+            <div className="stat-desc lg:text-2xl md:text-[12px] text-[8px] text-secondary">31 tasks remaining</div>
           </div>
         </div>
       </div>

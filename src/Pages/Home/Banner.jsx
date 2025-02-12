@@ -61,9 +61,9 @@ const Banner = () => {
                   <h1 data-aos="fade-left" className="lg:text-5xl md:text-2xl font-bold mb-4">
                     {slide.title}
                   </h1>
-                  <p data-aos="fade-up"  className="lg:text-lg text-[8px] md:text-xs lg:text-xl mb-6">{slide.description}</p>
-                  <Link to={'/allservices'}  data-aos="fade-up" className={`${day ? "nav-link2 bg-black" : " nav-link "}`}>
-                    <span className="relative z-10 text-white hover:text-yellow-400" >Get service</span>
+                  <p data-aos="fade-up"  className="lg:text-lg text-[8px] md:text-xs mb-6">{slide.description}</p>
+                  <Link to={'/allservices'}  data-aos="fade-up" className={`${day ? "nav-link2 bg-black" : " nav-link bg-white "}`}>
+                    <span className="relative z-10  hover:text-yellow-400 p-3" >Get service</span>
                   </Link>
                 </div>
               </div>

@@ -23,23 +23,23 @@ const Section3 = () => {
                 <div className="flex lg:space-x-4 space-x-1">
                     <a 
                         href="#"
-                        className="bg-black text-white text-[8px] md:text-xl font-medium py-2 px-4 rounded-md flex items-center space-x-2"
+                        className="bg-black text-white  font-medium py-2 md:px-4 px-1 rounded-md flex items-center space-x-2"
                     >
                         <span className='lg:text-4xl'>
                             <BsApple />
                         </span>
-                        <span>
+                        <span className='md:text-xl text-[5px]'>
                             Download <br /> App Store
                         </span>
                     </a>
                     <a 
                         href="#"
-                        className="bg-black text-white text-[8px] md:text-xl font-medium py-2 px-4 rounded-md flex items-center space-x-2"
+                        className="bg-black text-white  font-medium py-2 md:px-4 px-1 rounded-md flex items-center space-x-2"
                     >
-                        <span className='lg:text-4xl'>
+                        <span className='lg:text-4xl '>
                             <FaGooglePlay />
                         </span>
-                        <span>
+                        <span className='md:text-xl text-[5px]'>
                             Download <br /> Google Play
                         </span>
                     </a>

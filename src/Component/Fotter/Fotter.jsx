@@ -17,7 +17,7 @@ const Fotter = () => {
           </div>
 
           <div className="lg:flex lg:items-center">
-            <ul className="flex space-x-6">
+            <ul className="flex md:space-x-6 space-x-2">
               <li>
                 <a href="javascript:void(0)">
                   <svg xmlns="http://www.w3.org/2000/svg" className="fill-blue-700 hover:fill-white w-7 h-7" viewBox="0 0 24 24">
@@ -49,37 +49,37 @@ const Fotter = () => {
           </div>
 
           <div>
-            <h4 className={`text-lg mb-6 font-semibold ${day ? "text-white" : "text-black"}`}>Useful links</h4>
+            <h4 className={`md:text-lg text-base mb-6 font-bold ${day ? "text-white" : "text-black"}`}>Useful links</h4>
             <ul className="space-y-4 pl-2">
               <li>
-                <a href="javascript:void(0)" className={`font-semibold  text-base ${day ? "text-white" : "text-black"}` }>Featured</a>
+                <a href="javascript:void(0)" className={`font-semibold  lg:text-base text-xs ${day ? "text-white" : "text-black"}` }>Featured</a>
               </li>
               <li>
-                <a href="javascript:void(0)" className={`font-semibold  text-base ${day ? "text-white" : "text-black"}` }>New Arrivals</a>
+                <a href="javascript:void(0)" className={`font-semibold  lg:text-base text-xs ${day ? "text-white" : "text-black"}` }>New Arrivals</a>
               </li>
               <li>
-                <a href="javascript:void(0)" className={`font-semibold  text-base ${day ? "text-white" : "text-black"}` }>New Arrivals</a>
+                <a href="javascript:void(0)" className={`font-semibold  lg:text-base text-xs ${day ? "text-white" : "text-black"}` }>New Arrivals</a>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className={`text-lg mb-6 font-semibold ${day ? "text-white" : "text-black"}`}>Information</h4>
+            <h4 className={`md:text-lg text-base mb-6 font-bold ${day ? "text-white" : "text-black"}`}>Information</h4>
             <ul className="space-y-4 pl-2">
               <li>
-                <a href="javascript:void(0)" className={`font-semibold  text-base ${day ? "text-white" : "text-black"}` }>About Us</a>
+                <a href="javascript:void(0)" className={`font-semibold  lg:text-base text-xs ${day ? "text-white" : "text-black"}` }>About Us</a>
               </li>
               <li>
-                <a href="javascript:void(0)" className={`font-semibold  text-base ${day ? "text-white" : "text-black"}` }>Terms &amp; Conditions</a>
+                <a href="javascript:void(0)" className={`font-semibold  lg:text-base text-xs ${day ? "text-white" : "text-black"}` }>Terms &amp; Conditions</a>
               </li>
               <li>
-                <a href="javascript:void(0)" className={`font-semibold  text-base ${day ? "text-white" : "text-black"}` }>Privacy Policy</a>
+                <a href="javascript:void(0)" className={`font-semibold  lg:text-base text-xs ${day ? "text-white" : "text-black"}` }>Privacy Policy</a>
               </li>
               <li>
-                <a href="javascript:void(0)" className={`font-semibold  text-base ${day ? "text-white" : "text-black"}` }>Sale</a>
+                <a href="javascript:void(0)" className={`font-semibold  lg:text-base text-xs ${day ? "text-white" : "text-black"}` }>Sale</a>
               </li>
               <li>
-                <a href="javascript:void(0)" className={`font-semibold  text-base ${day ? "text-white" : "text-black"}` }>Documentation</a>
+                <a href="javascript:void(0)" className={`font-semibold  lg:text-base text-xs ${day ? "text-white" : "text-black"}` }>Documentation</a>
               </li>
             </ul>
           </div>

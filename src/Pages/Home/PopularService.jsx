@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "aos/dist/aos.css";
 import Aos from "aos";
 import AuthContext from "../../AuthProvider.jsx/AuhtContext";
+import Button from "./Button";
 
 const PopularService = () => {
   const { day } = useContext(AuthContext);
@@ -59,7 +60,7 @@ const PopularService = () => {
           >
             <figure>
               <img
-                className="h-64 w-full object-cover"
+                className="md:h-64 h-32 w-full object-cover"
                 src={card.imageUrl}
                 alt="Service"
               />
@@ -68,7 +69,7 @@ const PopularService = () => {
               <div className="flex justify-between items-start">
                 <div>
                   <h2
-                    className={`card-title text-base lg:text-xl font-semibold ${
+                    className={`card-title text-[10px] lg:text-xl font-semibold ${
                       day ? "text-white" : "text-black"
                     }`}
                   >
@@ -103,7 +104,7 @@ const PopularService = () => {
                 </div>
                 <div className="border-warning rounded-full border-2">
                   <img
-                    className="lg:h-14 lg:w-14 rounded-full"
+                    className="lg:h-14 h-10 w-10 lg:w-14 rounded-full"
                     src={card.providerphoto}
                     alt=""
                   />
@@ -111,13 +112,15 @@ const PopularService = () => {
               </div>
               <Link to={`/addservice/${card._id}`}>
                 <button
-                  className={`lg:mt-5 mt-2 w-full py-2 font-medium ${
+                  className={`lg:mt-5 mt-2 py-2 font-medium md:text-base text-[8px] ${
                     day ? "navlink2  text-white" : "navlink text-white"
                   } `}
                 >
                   <span className="relative z-10">View Detail</span>
                 </button>
+                
               </Link>
+              {/* <Button text="Get Service" day={day} ></Button> */}
             </div>
           </div>
         ))}
