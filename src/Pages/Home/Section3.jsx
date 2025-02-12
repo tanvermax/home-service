@@ -4,7 +4,7 @@ import { FaGooglePlay } from "react-icons/fa";
 
 const Section3 = () => {
     return (
-        <div className='lg:py-10'>
+        <div className='lg:py-10  '>
             <div className="bg-yellow-400 flex items-center justify-between lg:p-6 p-3 rounded-lg mx-auto w-11/12 md:w-9/12">
 
                 <div className="flex items-center space-x-4">

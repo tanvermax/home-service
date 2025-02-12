@@ -10,7 +10,7 @@ const PopularService = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://serverside-bay.vercel.app/addservice?limit=6")
+    fetch("http://localhost:5000/addservice?limit=6")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -93,9 +93,9 @@ const PopularService = () => {
                   </p>
                 </div>
               </div>
-              <div className="card-actions mt-5 flex justify-between items-center">
+              <div className="card-actions  flex justify-between items-center">
                 <div
-                  className={`text-sm ${
+                  className={`lg:text-xl font-bold ${
                     day ? "text-gray-300" : "text-gray-700"
                   }`}
                 >
@@ -103,7 +103,7 @@ const PopularService = () => {
                 </div>
                 <div className="border-warning rounded-full border-2">
                   <img
-                    className="h-12 w-12 rounded-full"
+                    className="lg:h-14 lg:w-14 rounded-full"
                     src={card.providerphoto}
                     alt=""
                   />

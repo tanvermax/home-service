@@ -35,7 +35,7 @@ const Addservices = () => {
       providername,
     };
 
-    fetch("https://serverside-bay.vercel.app/addservice", {
+    fetch("http://localhost:5000/addservice", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -6,7 +6,7 @@ const Section2 = () => {
   const { day } = useContext(AuthContext);
   
   return (
-    <div className="py-10 container">
+    <div className="py-10">
       <p className={`lg:text-xl lg:text-center ml-2 ${day ? "text-white" : "text-gray-500"}`}>---How it works</p>
       
       <h1 className={`lg:text-3xl font-semibold lg:text-center ml-2 mb-6 ${day ? "text-white" : "text-gray-500"}`}>

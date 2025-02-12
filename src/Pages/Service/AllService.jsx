@@ -5,11 +5,15 @@ import { CiSearch } from "react-icons/ci";
 
 import { Link, useLoaderData } from "react-router-dom";
 import AuthContext from "../../AuthProvider.jsx/AuhtContext";
+import { b } from "framer-motion/client";
 
 const AllService = () => {
   const { day } = useContext(AuthContext);
   const data = useLoaderData();
+  
   const [loadeDAta, setData] = useState(data);
+// const sortedData = [...data].sort((a,b)=> sortOrder==="asc"? a.price- b.price: b.price- a.price)
+
 
   const [search, setSearch] = useState("");
 
@@ -48,8 +52,7 @@ const AllService = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 py-9">
-        {loadeDAta
-          .filter((card) => {
+      {[...loadeDAta].sort((a, b) => a.price - b.price).filter((card) => {
             return search === ""
               ? true
               : card.serviceName.toLowerCase().includes(search.toLowerCase());

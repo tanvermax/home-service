@@ -6,6 +6,7 @@ import Section2 from "./Section2";
 import Section3 from "./Section3";
 import { Helmet } from "react-helmet-async";
 import AuthContext from "../../AuthProvider.jsx/AuhtContext";
+import Testimoni from "./Testimoni";
 
 const Home = () => {
   const {User} = useContext(AuthContext);
@@ -27,7 +28,9 @@ const Home = () => {
      <Section1></Section1>
      </div>
      <Section3></Section3>
+    
      <Section2></Section2>
+     <Testimoni></Testimoni>
       {/* {User.displayName ? User.displayName : " "} */}
      
     </div></>

@@ -10,7 +10,7 @@ const ServiceLayout = () => {
 
   useEffect(() => {
     axios
-      .get(`https://serverside-bay.vercel.app/order?email2=${User.email}`, {
+      .get(`http://localhost:5000/order?email2=${User.email}`, {
         headers: {
           Authorization: `Barer ${localStorage.getItem("token")}`,
         },
@@ -25,7 +25,7 @@ const ServiceLayout = () => {
     const form = e.target;
     const serviceStatus = form.serviceStatus.value;
 
-    fetch(`https://serverside-bay.vercel.app/order/${id}`, {
+    fetch(`http://localhost:5000/order/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

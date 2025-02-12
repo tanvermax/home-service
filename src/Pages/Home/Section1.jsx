@@ -17,8 +17,8 @@ const Section1 = () => {
   }, []);
   
   return (
-    <div className="py-10 container">
-      <p className={`lg:text-2xl lg:text-center px-5 ${day ? "text-white" : "text-black"}`}>___Why Choose Us</p>
+    <div className="py-10 ">
+      <p className={`lg:text-2xl lg:text-center py-5 ${day ? "text-white" : "text-black"}`}>___Why Choose Us</p>
       <h1 className={`lg:text-3xl font-semibold px-5 lg:text-center ${day ? "text-white" : "text-black"}`}>
         Because we care about your safety..
       </h1>
