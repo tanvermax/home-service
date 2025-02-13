@@ -7,6 +7,7 @@ import Section3 from "./Section3";
 import { Helmet } from "react-helmet-async";
 import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 import Testimoni from "./Testimoni";
+import Imageslide from "./Swiper/Imageslide";
 
 const Home = () => {
   const {User} = useContext(AuthContext);
@@ -30,7 +31,10 @@ const Home = () => {
      <Section3></Section3>
     
      <Section2></Section2>
-     <Testimoni></Testimoni>
+     {/* <Testimoni></Testimoni> */}
+     <section>
+        <Imageslide></Imageslide>
+      </section>
       {/* {User.displayName ? User.displayName : " "} */}
      
     </div></>

@@ -34,12 +34,13 @@ const Testimoni = () => {
             <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
               <div className="pr-3 font-medium  ">Micheal Gough</div>
               <div className="pl-3 text-sm font-light ">
-                CEO at Google
+                Dhaka,Bangldesh
               </div>
             </div>
           </figcaption>
         </figure>
       </div>
+
     </section>
   );
 };

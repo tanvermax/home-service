@@ -38,17 +38,17 @@ const Nabver = () => {
         <>
           {" "}
           <div className="dropdown dropdown-hover ">
-            <div tabIndex={0} role="button" className=" m-1">
-              <div className={ `bottom-1 ${day ? "nav-link2 bg-black" : " nav-link bg-white"}`}>
+            <div tabIndex={0} role="button" className=" ">
+              <div className={ `  ${day ? "nav-link2 bg-black" : " nav-link bg-white"}`}>
                 <button>
-                  <span className="relative z-10  ">DASHBOARD</span>
+                  <span className="relative z-10 ">DASHBOARD</span>
                 </button>
               </div>
             </div>
             
             <ul
               tabIndex={0}
-              className="  dropdown-content menu gap-3  rounded-box z-[1] w-52 p-2 shadow"
+              className="relative top-14 dropdown-content menu gap-3  rounded-box z-[1] w-52 md:p-2 shadow"
             >
               <NavLink className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`} to={"/addService"}>
                 <span className="relative z-10  ">Add-A-Service</span>
@@ -64,8 +64,8 @@ const Nabver = () => {
               </NavLink>
             </ul>
           </div>
-          <NavLink className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`} to={"/allservices"}>
-        <span className="relative z-10  ">PROFILE</span>
+          <NavLink className={`${day ? "nav-link2 bg-black" : " nav-link bg-white"}`} to={"/faq"}>
+        <span className="relative z-10  ">FAQ</span>
       </NavLink>
         </>
       ) : (
@@ -128,9 +128,9 @@ const Nabver = () => {
             <>
               
               <img className="lg:h-14 h-6 w-6 lg:w-14 rounded-full border-black border-2" src={User.photoURL} alt="" />
-              <p className={`text-xs ${day ? "text-white" : "text-black"}`}>{User?.displayName ? User.displayName : User.email}</p>
+              <p className={`md:text-xs text-[7px] ${day ? "text-white" : "text-black"}`}>{User?.displayName ? User.displayName : User.email}</p>
               <button onClick={logout} className={` ${day ? "nav-link2 bg-black" : " nav-link bg-white"}`}>
-                <span className="relative z-10  ">logout</span>
+                <span className="relative z-10 md:text-xs text-[6px] -top-1 md:top-0 md:left-0 -left-[1px]">logout</span>
               </button>
             </>
           ) : (

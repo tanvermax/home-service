@@ -57,7 +57,7 @@ const SignleServices = () => {
 
   return (
     <div className="w-8/12 mx-auto py-10">
-      <div key={loadData._id} className="loadData   shadow-xl">
+      <div key={loadData._id} className="loadData  shadow-xl">
         <figure>
           <img className="h-96 w-full" src={loadData.imageUrl} alt="Shoes" />
         </figure>
@@ -65,25 +65,25 @@ const SignleServices = () => {
           <div className="flex justify-between items-center">
             <div className="py-5 px-3">
               <h2
-                className={`loadData-title text-3xl font-semibold ${
+                className={`loadData-title md:text-3xl text-[8px] font-semibold ${
                   day ? "text-white" : "text-black"
                 }`}
               >
                 {loadData.serviceName}
               </h2>
               <p
-                className={`h-24 text-gray-600 overflow-hidden py-3 text-xl ${
+                className={`h-24 text-gray-600 overflow-hidden py-3 text-[8px] md:text-xl ${
                   day ? "text-white" : "text-black"
                 } `}
               >
                 {loadData.description} in serviceArea :{" "}
-                <span className="badge badge-secondary font-semibold">
+                <span className="badge badge-secondary text-[8px] md:text-xl font-semibold">
                   {loadData.serviceArea}
                 </span>{" "}
               </p>
             </div>
             <div>
-              <p className="text-xl  px-3 font-semibold">{loadData.price}$</p>
+              <p className={`text-xl  px-3 font-semibold ${day ? "text-white": "text-black"}`}>{loadData.price}$</p>
             </div>
           </div>
           <div className=" flex justify-between p-5">
@@ -110,7 +110,7 @@ const SignleServices = () => {
           className={`font-semibold ${day ? "nav_link2" : "nav_link"}`}
           onClick={() => document.getElementById("my_modal_5").showModal()}
         >
-          <span className="relative z-10">Book Now</span>
+          <span className="relative z-10 px-2">Book Now</span>
         </button>
       </div>
       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">

@@ -7,7 +7,7 @@ import Aos from "aos";
 import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 
 const Register = () => {
-  const { registerwihtgmail, googlelogin, setUser, updateUser } =
+  const { registerwihtgmail,day, googlelogin, setUser, updateUser } =
     useContext(AuthContext);
 
   useEffect(() => {
@@ -60,7 +60,7 @@ const Register = () => {
         <title>Register</title>
       </Helmet>
       <div className="hero  min-h-screen flex items-center justify-center">
-        <div className="container mx-auto px-4 lg:px-8">
+        <div className={`container mx-auto px-4 lg:px-8 ${day ? "text-white": "text-black"}`}>
           <div className="flex flex-col-reverse lg:flex-row items-center gap-8">
             <div data-aos="fade-right" className="text-center lg:text-left lg:w-1/2">
               <h1 className="text-4xl lg:text-5xl font-bold mb-4">Register now!</h1>
@@ -74,7 +74,7 @@ const Register = () => {
             >
               <form onSubmit={handleregisteruser} className="space-y-4">
                 <div className="form-control">
-                  <label className="label text-sm font-semibold text-gray-700">
+                  <label className="label text-sm font-semibold ">
                     Full Name
                   </label>
                   <input
@@ -85,7 +85,7 @@ const Register = () => {
                   />
                 </div>
                 <div className="form-control">
-                  <label className="label text-sm font-semibold text-gray-700">
+                  <label className="label text-sm font-semibold ">
                     Image URL
                   </label>
                   <input
@@ -96,7 +96,7 @@ const Register = () => {
                   />
                 </div>
                 <div className="form-control">
-                  <label className="label text-sm font-semibold text-gray-700">
+                  <label className="label text-sm font-semibold ">
                     Email
                   </label>
                   <input
@@ -108,7 +108,7 @@ const Register = () => {
                   />
                 </div>
                 <div className="form-control">
-                  <label className="label text-sm font-semibold text-gray-700">
+                  <label className="label text-sm font-semibold ">
                     Password
                   </label>
                   <input

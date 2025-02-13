@@ -14,6 +14,7 @@ import PrivetRouts from "../src/Privetrouts/PrivetRouts";
 import SignleServices from "../src/Pages/Service/SignleServices";
 import Editservice from "../src/Pages/Service/Editservice";
 import Errorpage from "../src/Pages/Errorpage";
+import Faq from "../src/Pages/Home/Faq/Faq";
 
 const Routs = createBrowserRouter([
   {
@@ -39,6 +40,11 @@ const Routs = createBrowserRouter([
       {
         path: "register",
         element: <Register></Register>,
+        errorElement: <Errorpage></Errorpage>,
+      },
+      {
+        path: "faq",
+        element: <Faq></Faq>,
         errorElement: <Errorpage></Errorpage>,
       },
       {

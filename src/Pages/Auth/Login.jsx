@@ -7,7 +7,8 @@ import Aos from "aos";
 import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 
 const Login = () => {
-  const { googlelogin, loginwihtpass } = useContext(AuthContext);
+  const { googlelogin, loginwihtpass,day } = useContext(AuthContext);
+ 
 
   useEffect(() => {
     Aos.init({
@@ -39,11 +40,11 @@ const Login = () => {
         <title>Log in</title>
       </Helmet>
       <div className="hero  min-h-screen flex items-center justify-center">
-        <div className="container mx-auto px-4 lg:px-8">
+        <div className={`container mx-auto px-4 lg:px-8 ${day ? "text-white": "text-black"}`}>
           <div className="flex flex-col-reverse lg:flex-row items-center gap-8">
             <div data-aos="fade-up" className="text-center lg:text-left lg:w-1/2">
               <h1 className="text-4xl lg:text-5xl font-bold mb-4">Login now!</h1>
-              <p className="text-gray-600">
+              <p className="">
                 Access your account to enjoy personalized services, track your progress,
                 and stay connected with the latest updates.
               </p>
@@ -54,7 +55,7 @@ const Login = () => {
             >
               <form onSubmit={handlelogin} className="space-y-4">
                 <div className="form-control">
-                  <label className="label text-sm font-semibold text-gray-700">
+                  <label className="label text-sm font-semibold ">
                     Email
                   </label>
                   <input
@@ -66,7 +67,7 @@ const Login = () => {
                   />
                 </div>
                 <div className="form-control">
-                  <label className="label text-sm font-semibold text-gray-700">
+                  <label className="label text-sm font-semibold ">
                     Password
                   </label>
                   <input

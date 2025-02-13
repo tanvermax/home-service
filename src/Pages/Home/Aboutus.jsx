@@ -38,26 +38,28 @@ const Aboutus = () => {
           </ul>
         </div>
       </div>
-      <section className="grid lg:grid-cols-2 w-11/12 mx-auto lg:py-20">
-        <div>
+      <section className="grid lg:grid-cols-2 gap-10 w-11/12 mx-auto lg:py-20">
+        <div className="py-10">
           <h1 className="text-3xl font-bold py-5">Start As Service provider</h1>
-          <ul>
+          <ul className="py-7">
             <li>
               It is a long established fact that a reader will be distracted by
               the readable.
             </li>
           </ul>
+          <button className="btn bg-yellow-300 ">Become Service Provider</button>
         </div>
         <div>
           <img
+          className="md:w-full rounded-2xl"
             src="https://www.poshorabd.com/assets/uploads/media-uploader/4905418c115548a996d36deac6d5fd5b1704883862.jpg"
             alt=""
           />
         </div>
       </section>
-      <section>
+      {/* <section>
         <Imageslide></Imageslide>
-      </section>
+      </section> */}
     </>
   );
 };
