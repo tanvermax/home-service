@@ -2,115 +2,93 @@ import React, { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { BsMic } from "react-icons/bs";
 import { CiSearch } from "react-icons/ci";
-
 import { Link, useLoaderData } from "react-router-dom";
 import AuthContext from "../../AuthProvider.jsx/AuhtContext";
-import { b } from "framer-motion/client";
+
+const ServiceCard = ({ card, day }) => {
+  return (
+    <div className="card bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+      <figure className="relative">
+        <img className="h-64 w-full object-cover" src={card.imageUrl} alt={card.serviceName} />
+        <div className="absolute top-2 right-2 bg-primary text-white px-2 py-1 rounded-full text-xs font-semibold">
+          ${card.price}
+        </div>
+      </figure>
+      <div className="card-body p-6">
+        <h2 className={`text-xl font-bold ${day ? "text-white" : "text-gray-900"} mb-2`}>
+          {card.serviceName}
+        </h2>
+        <p className={`text-sm ${day ? "text-gray-300" : "text-gray-600"} line-clamp-3 mb-4`}>
+          {card.description} in{" "}
+          <span className="badge bg-secondary text-white px-2 py-1 rounded-md text-xs font-semibold">
+            {card.serviceArea}
+          </span>
+        </p>
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <img
+              className="h-10 w-10 rounded-full border-2 border-warning object-cover"
+              src={card.providerphoto}
+              alt={card.providername}
+            />
+            <span className={`text-sm font-medium ${day ? "text-gray-200" : "text-gray-700"}`}>
+              {card.providername}
+            </span>
+          </div>
+        </div>
+        <Link to={`/addservice/${card._id}`}>
+          <button className="w-full bg-primary text-white py-2 px-4 rounded-lg hover:bg-primary-dark transition-colors duration-200 font-medium">
+            View Details
+          </button>
+        </Link>
+      </div>
+    </div>
+  );
+};
 
 const AllService = () => {
   const { day } = useContext(AuthContext);
   const data = useLoaderData();
-  
   const [loadeDAta, setData] = useState(data);
-// const sortedData = [...data].sort((a,b)=> sortOrder==="asc"? a.price- b.price: b.price- a.price)
-
-
   const [search, setSearch] = useState("");
 
   return (
-    <div className="w-10/12 mx-auto">
+    <div className="w-11/12 mx-auto max-w-7xl py-8">
       <Helmet>
-        <title>ALL service - Service Sharing</title>
+        <title>All Services - Service Sharing</title>
       </Helmet>
 
-      <div className="lg:flex items-center  justify-between">
+      <div className="flex flex-col lg:flex-row items-center justify-between mb-8">
         <h1
-          className={`lg:py-4 lg:text-2xl text-sm ml-5 font-medium ${
-            day ? "text-white" : "text-black"
-          }`}
+          className={`text-2xl lg:text-3xl font-bold ${day ? "text-white" : "text-gray-900"
+            } mb-4 lg:mb-0`}
         >
-          ALL SERVICES Here What You Need
+          All Services
         </h1>
 
-        <div className="flex items-center py-5">
-          <span className="lg:text-2xl lg:mr-3 ">
-            {" "}
-            <CiSearch />
-          </span>
+        <div className="relative flex items-center w-full lg:w-auto">
+          <CiSearch className="absolute left-3 text-xl text-gray-500" />
           <input
-            placeholder="search your service"
+            placeholder="Search services..."
             onChange={(e) => setSearch(e.target.value)}
-            className="border-[1px] lg:p-2 p-1 border-black w-56"
+            className={`w-full lg:w-80 pl-10 pr-12 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent ${day ? "bg-gray-700 text-white border-gray-600" : "bg-white text-gray-900 border-gray-300"
+              }`}
             type="search"
-            name=""
-            id=""
           />
-          <span className="relative p-1 right-8 text-blue-500 border-l-2 border-gray-400 ">
-            {" "}
-            <BsMic />
-          </span>
+          <BsMic className="absolute right-3 text-blue-500" />
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 py-9">
-      {[...loadeDAta].sort((a, b) => a.price - b.price).filter((card) => {
-            return search === ""
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[...loadeDAta]
+          .sort((a, b) => a.price - b.price)
+          .filter((card) =>
+            search === ""
               ? true
-              : card.serviceName.toLowerCase().includes(search.toLowerCase());
-          })
+              : card.serviceName.toLowerCase().includes(search.toLowerCase())
+          )
           .map((card) => (
-            <div key={card._id} className="card   shadow-xl">
-              <figure>
-                <img className="h-72 w-full" src={card.imageUrl} alt="Shoes" />
-              </figure>
-              <div className="card-body">
-                <div className="flex justify-between">
-                  <div>
-                    <h2
-                      className={`card-title lg:text-xl text-xs ${
-                        day ? "text-white" : "text-black"
-                      }`}
-                    >
-                      {card.serviceName}
-                    </h2>
-                    <p
-                      className={`h-14 lg:text-xs text-[8px] overflow-y-scroll py-2 ${
-                        day ? "text-white" : "text-gray-600"
-                      } `}
-                    >
-                      {card.description} in{" "}
-                      <span className="badge badge-secondary lg:text-base text-[8px] font-semibold">
-                        {card.serviceArea}
-                      </span>
-                    </p>
-                  </div>
-                  <div>
-                    <p className={`  ${day ? "text-white" : "text-black"}`}>
-                      {card.price}$
-                    </p>
-                  </div>
-                </div>
-                <div className="card-actions  items-center   justify-between">
-                  <div className={`${day ? "nav_link2" : "nav_link"}`}>
-                    prov :{" "}
-                    <span className="relative z-10 hover:mr-10 font-bold ">
-                      {card.providername}
-                    </span>
-                  </div>
-                  <div className=" border-warning rounded-full border-2">
-                    <img
-                      className="lg:h-14 h-8 lg:w-14 w-8 rounded-full"
-                      src={card.providerphoto}
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <Link to={`/addservice/${card._id}`}>
-                  <button className={`${day ? "nav_link2" : "nav_link"}`}>
-                    <span className="relative z-10">View Detail</span>
-                  </button>
-                </Link>
-              </div>
-            </div>
+            <ServiceCard key={card._id} card={card} day={day} />
           ))}
       </div>
     </div>

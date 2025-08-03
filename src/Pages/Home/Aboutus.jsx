@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import photo from "./../../assets/logo2.png";
 import Imageslide from "./Swiper/Imageslide";
+import AuthContext from "../../AuthProvider.jsx/AuhtContext";
 
 const Aboutus = () => {
+  const { day } = useContext(AuthContext);
   return (
     <>
       <div className="grid lg:grid-cols-2 w-11/12 mx-auto lg:py-20">
-        <div>
-          <img src={photo} alt="" />
+        <div className="content-center">
+          <p className={`text-5xl ${day ? "text-white" : "text-black"} `}>TrustyHands</p>
+
         </div>
         <div>
           <h1 className="text-3xl font-bold py-5">Know About Us</h1>
@@ -51,7 +54,7 @@ const Aboutus = () => {
         </div>
         <div>
           <img
-          className="md:w-full rounded-2xl"
+            className="md:w-full rounded-2xl"
             src="https://www.poshorabd.com/assets/uploads/media-uploader/4905418c115548a996d36deac6d5fd5b1704883862.jpg"
             alt=""
           />

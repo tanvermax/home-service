@@ -57,7 +57,7 @@ const SignleServices = () => {
 
   return (
     <div className="w-8/12 mx-auto py-10">
-      <div key={loadData._id} className="loadData  shadow-xl">
+      <div key={loadData._id} className="loadData border shadow-xl">
         <figure>
           <img className="h-96 w-full" src={loadData.imageUrl} alt="Shoes" />
         </figure>

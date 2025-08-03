@@ -6,3 +6,21 @@
   @apply  text-center lg:py-3 text-xs p-1 lg:text-base text-white relative h-6 lg:h-12 lg:w-40 overflow-hidden border border-white shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-gray-900 before:transition-all before:duration-300 hover:text-yellow-600 hover:shadow-white hover:before:-rotate-180;
 }
 
+.nav-link, .nav-link2 {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.nav-item {
+  @apply text-center lg:py-3 text-xs p-1 lg:text-base relative h-6 lg:h-12 lg:w-40 overflow-hidden border shadow-2xl before:absolute before:left-0 before:-ml-2 before:h-48 before:w-48 before:origin-top-right before:-translate-x-full before:translate-y-12 before:-rotate-90 before:bg-gray-900 before:transition-all before:duration-300 hover:text-yellow-600 hover:shadow-black hover:before:-rotate-180;
+}
+
+/* Light mode specific */
+.nav-item.light {
+  @apply text-black border-black hover:shadow-black;
+}
+
+/* Dark mode specific */
+.nav-item.dark {
+  @apply text-white border-white hover:shadow-white;
+}
