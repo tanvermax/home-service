@@ -60,8 +60,9 @@ const AllService = () => {
 
       <div className="flex flex-col lg:flex-row items-center justify-between mb-8">
         <h1
-          className={`text-2xl lg:text-3xl font-bold ${day ? "text-white" : "text-gray-900"
-            } mb-4 lg:mb-0`}
+          className={`text-2xl lg:text-3xl font-bold ${
+            day ? "text-white" : "text-gray-900"
+          } mb-4 lg:mb-0`}
         >
           All Services
         </h1>
@@ -71,8 +72,9 @@ const AllService = () => {
           <input
             placeholder="Search services..."
             onChange={(e) => setSearch(e.target.value)}
-            className={`w-full lg:w-80 pl-10 pr-12 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent ${day ? "bg-gray-700 text-white border-gray-600" : "bg-white text-gray-900 border-gray-300"
-              }`}
+            className={`w-full lg:w-80 pl-10 pr-12 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent ${
+              day ? "bg-gray-700 text-white border-gray-600" : "bg-white text-gray-900 border-gray-300"
+            }`}
             type="search"
           />
           <BsMic className="absolute right-3 text-blue-500" />
